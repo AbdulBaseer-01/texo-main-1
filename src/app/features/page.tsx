@@ -278,7 +278,7 @@ const Features = () => {
       <PlugnPlay />
       <Advantages />
       <Container
-  mainImage="/container/container full.png"
+  mainImage="/container/container-full-1.png"
   mainHeading="Crafted to Perfection"
   mainSubtitle="Explore our curated collection of premium products"
   subImages={[
@@ -295,7 +295,7 @@ const Features = () => {
       ],
     },
     {
-      src: '/container/container wall layer.png',
+      src: '/container/container wall layer f.png',
       heading: 'Wall Layer',
       description: 'Lightweight stone veneer slabs that bring the beauty of natural rock indoors.',
       tag: 'Wall Layer',
@@ -307,7 +307,7 @@ const Features = () => {
       ],
     },
     {
-      src: '/container/container roof.png',
+      src: '/container/container-roof.png',
       heading: 'Roof Layer',
       description: 'Premium marble-effect surfaces that are durable, low-maintenance, and breathtaking.',
       tag: 'Roof Layer',
