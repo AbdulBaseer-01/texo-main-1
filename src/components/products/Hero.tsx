@@ -140,7 +140,7 @@ export default function Hero({ product }: HeroProps) {
             </AnimatePresence>
 
             {/* Gradient veil — matching products card style */}
-            <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent z-10" />
+            {/* <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent z-10" /> */}
 
             {/* Category badge — top left, matching Products page badge style */}
             <motion.div

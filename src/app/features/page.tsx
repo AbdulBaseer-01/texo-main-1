@@ -12,6 +12,8 @@ import Image from 'next/image'
 import Vision from '@/components/features/Vision'
 import KeyFeatures from '@/components/features/KeyFeatures'
 import Advantages from '@/components/features/Advantage'
+import Container from '@/components/container/Container'
+import AddOns from '@/components/addons/AddOns'
 
 const merri = Merriweather({
   subsets: ['latin'],
@@ -27,7 +29,30 @@ const playfair = Playfair_Display({
 
 
 
+const externalItems = [
+  { id: 1, name: 'Pergola — GF',          image: '/addons/pergola-gf.png'          },
+  { id: 2, name: 'Tiling and Railing',     image: '/addons/tiling-railing.png'      },
+  { id: 3, name: 'Pergola — FF',           image: '/addons/pergola-ff.png'          },
+  { id: 4, name: 'Ladder',                 image: '/addons/ladder.png'              },
+  { id: 5, name: 'Spiral Staircase',       image: '/addons/spiral-staricase.png'    },
+  { id: 6, name: 'Dog Legged Staircase',   image: '/addons/dog-legged-staircase.png'          },
+  { id: 7, name: 'Solar',                  image: '/addons/solar.png'               },
+  { id: 8, name: 'Utility',                image: '/addons/utility.png'             },
+  { id: 9, name: 'Overhead Tank 500 L',    image: '/addons/water tank.png'       },
+]
 
+const internalItems = [
+  { id: 1, name: 'Kitchen',      image: '/addons/kitchen.png'            },
+  { id: 2, name: 'Vanity',        image: '/addons/vanity.png'     },
+  { id: 3, name: 'Wardrobe',          image: '/addons/wardrobe.png'            },
+  { id: 4, name: 'Bed',    image: '/addons/bed.png'       },
+  { id: 5, name: 'Side Table',        image: '/addons/side table.png'     },
+  { id: 6, name: 'Fold-out Table',   image: '/addons/fold-out-table.png'    },
+  { id: 7, name: 'Blind Curtain',    image: '/addons/blind-curtain.png'       },
+  { id: 8, name: 'Shower Glass Partition',    image: '/addons/shower-glass-partition.png'       },
+  { id: 9, name: 'Vanity Mirror',    image: '/addons/vanity-mirror.png'       },
+  { id: 10, name: 'Bathroom Accessories',    image: '/addons/bathroom accessories.png'       },
+]
 
 const process = [
   {
@@ -252,7 +277,49 @@ const Features = () => {
       <KeyFeatures />
       <PlugnPlay />
       <Advantages />
-
+      <Container
+  mainImage="/container/container full.png"
+  mainHeading="Crafted to Perfection"
+  mainSubtitle="Explore our curated collection of premium products"
+  subImages={[
+    {
+      src: '/container/container floor.png',
+      heading: 'Floor Layer',
+      description: 'Natural teak with a rich grain texture, perfect for accent walls and statement furniture.',
+      tag: 'Floor Layer',
+      detailImages: [
+        '/container/container full.png',
+        '/container/container full.png',
+        '/container/container full.png',
+        '/container/container full.png',
+      ],
+    },
+    {
+      src: '/container/container wall layer.png',
+      heading: 'Wall Layer',
+      description: 'Lightweight stone veneer slabs that bring the beauty of natural rock indoors.',
+      tag: 'Wall Layer',
+      detailImages: [
+        '/container/container full.png',
+        '/container/container full.png',
+        '/container/container full.png',
+        '/container/container full.png',
+      ],
+    },
+    {
+      src: '/container/container roof.png',
+      heading: 'Roof Layer',
+      description: 'Premium marble-effect surfaces that are durable, low-maintenance, and breathtaking.',
+      tag: 'Roof Layer',
+      detailImages: [
+        '/container/container full.png',
+        '/container/container full.png',
+        '/container/container full.png',
+        '/container/container full.png',
+      ],
+    },
+  ]}
+/>
 
       {/* ── TRUST STRIP ───────────────────────────────────────────────────────── */}
       <section className="bg-[#0d0b08] py-14 px-6 md:px-12 border-t border-[#886c46]/15">
@@ -415,6 +482,11 @@ const Features = () => {
           </motion.div>
         </div>
       </section>
+      <AddOns
+  heroImage="/addons/main-house.png"
+  externalItems={externalItems}
+  internalItems={internalItems}
+/>
 
     </div>
   )

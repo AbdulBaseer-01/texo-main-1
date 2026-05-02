@@ -1,20 +1,38 @@
 import { LucideIcon, Home, Building2, Factory, Briefcase, FileText, Package } from 'lucide-react'
-
+import { TechSpecsData } from '@/components/products/TechSpecs'
+ 
+/* ─────────────────────────────────────────────
+   CORE TYPES
+───────────────────────────────────────────── */
+ 
 export interface ProductData {
-  name: string
-  category: string
-  icon: LucideIcon
-  description: string
+  name:            string
+  category:        string
+  icon:            LucideIcon
+  description:     string
   longDescription: string
-  gallery: string[]
-  variants: { variantName: string; variantImage: string; variantInterior: string; }[]
-  advantages: { title: string; description: string; icon: string }[]
-  faq: { question: string; answer: string }[]
+  gallery:         string[]
+  variants: {
+    variantName:     string
+    variantImage:    string
+    variantInterior: string
+  }[]
+  advantages: {
+    title:       string
+    description: string
+    icon:        string
+  }[]
+  faq: {
+    question: string
+    answer:   string
+  }[]
   trustBand: {
-    citiesCovered: number
-    completedProjects: number
+    citiesCovered:        number
+    completedProjects:    number
     customerSatisfaction: number
   }
+  /** NEW: per-tab technical specification data */
+  techSpecs: TechSpecsData
 }
 
 export const productsData: Record<string, ProductData> = {
@@ -101,7 +119,151 @@ variants: [
     citiesCovered: 150,
     completedProjects: 250,
     customerSatisfaction: 98
-  }
+  },
+  techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
 },
   'Arc Pod': {
     name: 'Arc Pod',
@@ -186,7 +348,151 @@ variants: [
       citiesCovered: 120,
       completedProjects: 180,
       customerSatisfaction: 96
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Wooden House': {
     name: 'Wooden House',
@@ -271,7 +577,151 @@ variants: [
       citiesCovered: 200,
       completedProjects: 400,
       customerSatisfaction: 97
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Smart House': {
     name: 'Smart House',
@@ -356,7 +806,151 @@ variants: [
       citiesCovered: 80,
       completedProjects: 95,
       customerSatisfaction: 99
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   
   'Porta Cabin': {
@@ -442,7 +1036,151 @@ variants: [
       citiesCovered: 300,
       completedProjects: 1200,
       customerSatisfaction: 95
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Farmhouse': {
     name: 'Farmhouse',
@@ -527,7 +1265,151 @@ variants: [
       citiesCovered: 180,
       completedProjects: 350,
       customerSatisfaction: 94
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Portable Cabin': {
     name: 'Portable Cabin',
@@ -612,7 +1494,151 @@ variants: [
       citiesCovered: 250,
       completedProjects: 800,
       customerSatisfaction: 93
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Bunk House Cabin': {
     name: 'Bunk House Cabin',
@@ -697,7 +1723,151 @@ variants: [
       citiesCovered: 200,
       completedProjects: 600,
       customerSatisfaction: 92
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Containers House': {
     name: 'Containers House',
@@ -782,7 +1952,151 @@ variants: [
       citiesCovered: 150,
       completedProjects: 280,
       customerSatisfaction: 96
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Modular Toilet': {
     name: 'Modular Toilet',
@@ -867,7 +2181,151 @@ variants: [
       citiesCovered: 400,
       completedProjects: 1500,
       customerSatisfaction: 91
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Mobile Toilet': {
     name: 'Mobile Toilet',
@@ -952,7 +2410,151 @@ variants: [
       citiesCovered: 350,
       completedProjects: 1100,
       customerSatisfaction: 90
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Portable Toilet Cabin': {
     name: 'Portable Toilet Cabin',
@@ -1037,7 +2639,151 @@ variants: [
       citiesCovered: 300,
       completedProjects: 950,
       customerSatisfaction: 89
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Prefab Site Offices': {
     name: 'Prefab Site Offices',
@@ -1122,7 +2868,151 @@ variants: [
       citiesCovered: 280,
       completedProjects: 720,
       customerSatisfaction: 94
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Prefab Structures': {
     name: 'Prefab Structures',
@@ -1207,7 +3097,151 @@ variants: [
       citiesCovered: 320,
       completedProjects: 850,
       customerSatisfaction: 93
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Prefabricated Accommodation': {
     name: 'Prefabricated Accommodation',
@@ -1292,7 +3326,151 @@ variants: [
       citiesCovered: 250,
       completedProjects: 650,
       customerSatisfaction: 95
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Prefab House': {
     name: 'Prefab House',
@@ -1377,7 +3555,151 @@ variants: [
       citiesCovered: 200,
       completedProjects: 480,
       customerSatisfaction: 96
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Prefab Schools': {
     name: 'Prefab Schools',
@@ -1462,7 +3784,151 @@ variants: [
       citiesCovered: 180,
       completedProjects: 320,
       customerSatisfaction: 97
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Clinic Cabin': {
     name: 'Clinic Cabin',
@@ -1548,7 +4014,151 @@ variants: [
       citiesCovered: 220,
       completedProjects: 180,
       customerSatisfaction: 98
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Restaurant Cabin': {
     name: 'Restaurant Cabin',
@@ -1633,7 +4243,151 @@ variants: [
       citiesCovered: 160,
       completedProjects: 140,
       customerSatisfaction: 95
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Smoking Room': {
     name: 'Smoking Room',
@@ -1718,7 +4472,151 @@ variants: [
       citiesCovered: 190,
       completedProjects: 220,
       customerSatisfaction: 92
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Electrical Room': {
     name: 'Electrical Room',
@@ -1803,7 +4701,151 @@ variants: [
       citiesCovered: 240,
       completedProjects: 300,
       customerSatisfaction: 96
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Security Cabins': {
     name: 'Security Cabins',
@@ -1888,7 +4930,151 @@ variants: [
       citiesCovered: 280,
       completedProjects: 450,
       customerSatisfaction: 94
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Toll Booth': {
     name: 'Toll Booth',
@@ -1974,7 +5160,151 @@ variants: [
       citiesCovered: 150,
       completedProjects: 200,
       customerSatisfaction: 93
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'ATM Cabin': {
     name: 'ATM Cabin',
@@ -2059,7 +5389,151 @@ variants: [
       citiesCovered: 200,
       completedProjects: 350,
       customerSatisfaction: 95
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Control Room': {
     name: 'Control Room',
@@ -2144,7 +5618,151 @@ variants: [
       citiesCovered: 180,
       completedProjects: 280,
       customerSatisfaction: 97
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Solar Control Room': {
     name: 'Solar Control Room',
@@ -2229,7 +5847,150 @@ variants: [
       citiesCovered: 120,
       completedProjects: 160,
       customerSatisfaction: 98
-    }
+    },
+    techSpecs: {
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   },
   'Clean Room': {
     name: 'Clean Room',
@@ -2314,7 +6075,151 @@ variants: [
       citiesCovered: 140,
       completedProjects: 190,
       customerSatisfaction: 99
-    }
+    },
+    techSpecs: {
+    /* 1 ─ Architecture */
+    architecture: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Structure',        value: 'Galvanised Steel Portal Frame (GSPF)' },
+        { label: 'Frame thickness',  value: '2 mm cold-formed sections' },
+        { label: 'Module width',     value: '3.6 m standard bay' },
+        { label: 'Floor-to-ceiling', value: '2.9 m clear height' },
+        { label: 'Total floors',     value: 'Up to G+2 without podium' },
+        { label: 'Wind rating',      value: '200 km/h (IS 875 Part 3)' },
+        { label: 'Seismic zone',     value: 'Zone IV compliant (IS 1893)' },
+        { label: 'Design life',      value: '50 years minimum' },
+      ],
+    },
+ 
+    /* 2 ─ Exterior Wall & Roof */
+    exteriorWallRoof: {
+      images: [
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Wall panel',        value: '120 mm SIP (OSB + EPS core)' },
+        { label: 'External finish',   value: '6 mm fibre-cement cladding' },
+        { label: 'U-value (wall)',     value: '0.28 W/m²K' },
+        { label: 'Roof system',       value: 'Concealed-fix metal deck on purlins' },
+        { label: 'Roof insulation',   value: '100 mm glasswool blanket' },
+        { label: 'Waterproofing',     value: 'Single-ply TPO membrane' },
+        { label: 'Rain-screen gap',   value: '25 mm vented cavity' },
+        { label: 'Fire rating',       value: '60-min FR (IS 3809)' },
+      ],
+    },
+ 
+    /* 3 ─ Interior Wall & Ceiling */
+    interiorWallCeiling: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Partition system',  value: '75 mm metal-stud gypsum board' },
+        { label: 'Board thickness',   value: '12.5 mm Type-X each side' },
+        { label: 'Acoustic rating',   value: 'Rw 42 dB (party walls)' },
+        { label: 'Ceiling type',      value: 'Suspended grid with acoustic tiles' },
+        { label: 'Tile size',         value: '600 × 600 mm mineral fibre' },
+        { label: 'Ceiling height',    value: '2.6 m finished' },
+        { label: 'Paint finish',      value: 'Premium emulsion — 2 base + 2 topcoat' },
+        { label: 'Corner bead',       value: 'Galvanised steel angle bead throughout' },
+      ],
+    },
+ 
+    /* 4 ─ Interior & Exterior Floor */
+    interiorExteriorFloor: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Sub-floor',        value: '18 mm structural-grade OSB on joists' },
+        { label: 'Interior finish',  value: '600×600 mm vitrified tile (8 mm)' },
+        { label: 'Adhesive',         value: 'Polymer-modified tile adhesive' },
+        { label: 'Exterior deck',    value: 'Composite WPC decking — anti-slip' },
+        { label: 'Deck board',       value: '140 × 25 mm hollow profile' },
+        { label: 'Screed',           value: '40 mm self-levelling compound' },
+        { label: 'Underfloor prep',  value: 'DPM polythene sheet 1200G' },
+        { label: 'Slip resistance',  value: 'R11 wet-area rating (bathrooms)' },
+      ],
+    },
+ 
+    /* 5 ─ Doors, Sanitary & Electrical */
+    doorsSanitaryElectrical: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+      ],
+      specs: [
+        { label: 'Main door',         value: 'Solid-core flush door 900×2100 mm' },
+        { label: 'Internal doors',    value: 'Hollow-core 800×2100 mm' },
+        { label: 'Windows',           value: 'UPVC double-glazed, U-value 1.8' },
+        { label: 'Sanitary brand',    value: 'Hindware / Kohler (as selected)' },
+        { label: 'WC type',           value: 'Wall-hung EWC with concealed cistern' },
+        { label: 'Plumbing pipe',     value: 'CPVC hot & cold; UPVC drainage' },
+        { label: 'DB board',          value: '12-way MCB distribution board' },
+        { label: 'Wiring',            value: 'FR-LSH copper, 2.5 / 4 sq mm' },
+      ],
+    },
+ 
+    /* 6 ─ Transit, Payment & Warranty */
+    transitPaymentWarranty: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Lead time',         value: '30–45 days from booking confirmation' },
+        { label: 'Delivery mode',     value: 'Flat-pack on 40 ft trailers' },
+        { label: 'Assembly crew',     value: 'Factory-trained 8-person team' },
+        { label: 'Erection time',     value: '15–20 working days on site' },
+        { label: 'Payment terms',     value: '30% booking · 40% dispatch · 30% handover' },
+        { label: 'Structure warranty', value: '10 years (frame & panel)' },
+        { label: 'Finish warranty',   value: '5 years (cladding, paint, waterproofing)' },
+        { label: 'Service contract',  value: 'Annual AMC available post-warranty' },
+      ],
+    },
+ 
+    /* 7 ─ 2D Layout */
+    layout2D: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [
+        { label: 'Configuration',    value: '2 BHK — 3 BHK modular options' },
+        { label: 'Carpet area',      value: '65 m² (2BHK) · 95 m² (3BHK)' },
+        { label: 'Plot footprint',   value: '7.2 m × 10.8 m (std.)' },
+        { label: 'Living room',      value: '4.5 × 3.9 m' },
+        { label: 'Master bedroom',   value: '3.9 × 3.6 m with attached bath' },
+        { label: 'Kitchen',          value: '3.0 × 2.7 m modular layout' },
+        { label: 'Deck / veranda',   value: '3.6 × 1.8 m' },
+        { label: 'Drawing standard', value: 'AutoCAD DWG supplied at handover' },
+      ],
+    },
+ 
+    /* 8 ─ Gallery */
+    gallery: {
+      images: [
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+        '/siteoffice-2.webp',
+        '/products-hero.png',
+      ],
+      specs: [],   // no spec rows needed for the gallery tab
+    },
+  },
   }
 }
 

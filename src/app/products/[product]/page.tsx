@@ -18,10 +18,11 @@ import {
   X,
 } from 'lucide-react'
 import Contact from '@/components/Contact'
-import { productsData, getProductsByCategory, getProductByName, ProductData } from '@/lib/productsData'
+import { getProductsByCategory, getProductByName } from '@/lib/productsData'
 import Hero from '@/components/products/Hero'
 import Advantages from '@/components/products/Advantages'
 import Variants from '@/components/products/Variants'
+import TechSpecs from '@/components/products/TechSpecs'
 
 interface CountUpProps {
   end: number
@@ -585,6 +586,7 @@ const ProductPage = () => {
           </div>
         </section>
       )}
+      <TechSpecs product={product} />
 
       {/* ─── CONTACT ─────────────────────────────────────────────────── */}
       <Contact />
