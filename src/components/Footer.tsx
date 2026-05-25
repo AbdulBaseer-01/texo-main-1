@@ -66,25 +66,25 @@ export default function PremiumFooter() {
 
     <footer ref={footerRef} className="relative bg-black text-white overflow-hidden md:max-h-screen  z-99999">
 
-      <div
+      {/* <div
         className="absolute inset-0 opacity-[0.02]"
         style={{
           backgroundImage: `radial-gradient(circle, #886c46 1px, transparent 1px)`,
           backgroundSize: '30px 30px',
         }}
-      />
+      /> */}
 
-      <div className="absolute inset-0 pointer-events-none">
+      {/* <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-40 -left-20 w-96 h-96 bg-[#886c46]/30 rounded-full blur-[120px]" />
         <div className="absolute bottom-20 -right-20 w-96 h-96 bg-[#886c46]/30 rounded-full blur-[120px]" />
-      </div>
+      </div> */}
 
-      <motion.div
+      {/* <motion.div
         initial={{ scaleX: 0 }}
         animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
         transition={{ duration: 1.2, ease: 'easeInOut' }}
         className="h-1.5 bg-linear-to-r from-black via-[#886c46] to-black origin-left"
-      />
+      /> */}
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-10 pt-6">
 
@@ -183,8 +183,8 @@ export default function PremiumFooter() {
                 key={i}
                 className="relative flex items-center gap-4 p-4 rounded-xl border border-[#886c46]/20 bg-white/2 hover:bg-[#886c46]/5 hover:border-[#886c46]/50 transition-all duration-300 group overflow-hidden"
               >
-                <div className="absolute top-0 left-0 w-8 h-px bg-[#886c46]/50 group-hover:w-full transition-all duration-500" />
-                <div className="absolute bottom-0 right-0 w-8 h-px bg-[#886c46]/50 group-hover:w-full transition-all duration-500" />
+                {/* <div className="absolute top-0 left-0 w-8 h-px bg-[#886c46]/50 group-hover:w-full transition-all duration-500" />
+                <div className="absolute bottom-0 right-0 w-8 h-px bg-[#886c46]/50 group-hover:w-full transition-all duration-500" /> */}
                 <div className="shrink-0 flex h-11 w-11 items-center justify-center rounded-full bg-white/5 border border-[#886c46]/30 group-hover:bg-[#886c46]/10 group-hover:border-[#886c46]/60 transition-all duration-300">
                   <MapPin size={18} className="text-[#886c46]" />
                 </div>

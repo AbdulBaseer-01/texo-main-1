@@ -83,7 +83,7 @@ export default function PlugnPlay() {
         className="relative h-96 md:h-130 rounded-3xl overflow-hidden shadow-2xl shadow-black/20 group"
       >
         <Image
-          src="/products-hero.png"
+          src="/office/texo-4.jpg"
           alt="Texo Prefab construction"
           fill
           className="object-cover group-hover:scale-105 transition duration-700"

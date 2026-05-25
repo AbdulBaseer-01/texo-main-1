@@ -129,7 +129,7 @@ export default function Advantages() {
                     size={32}
                     strokeWidth={1.5}
                   />
-                  <h2 className={`${playfair.className} text-base font-semibold leading-snug`}>
+                  <h2 className={`${playfair.className} text-xl font-semibold leading-snug`}>
                     {adv.title}
                   </h2>
                 </div>

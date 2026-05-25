@@ -53,6 +53,7 @@ export default function Contact() {
   const [form, setForm] = useState<FormState>({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -60,9 +61,27 @@ export default function Contact() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1400));
-    setLoading(false);
-    setSubmitted(true);
+    setError('');
+
+    try {
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const payload = await res.json();
+
+      if (!res.ok) {
+        throw new Error(payload.error ?? 'Unable to send your message');
+      }
+
+      setSubmitted(true);
+      setForm({ name: '', email: '', phone: '', message: '' });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Unable to send your message');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -291,6 +310,15 @@ export default function Contact() {
                       </>
                     )}
                   </button>
+
+                  {error ? (
+                    <p
+                      className="text-center text-xs text-red-200 font-light"
+                      style={{ fontFamily: "'Merriweather', serif" }}
+                    >
+                      {error}
+                    </p>
+                  ) : null}
 
                   <p
                     className="text-center text-[0.58rem] text-white/90 font-light tracking-wider"

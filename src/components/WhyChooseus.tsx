@@ -142,26 +142,26 @@ const WhyChooseUs = () => {
           </div>
 
           <div className="relative rounded-3xl bg-white border border-[#886c46]/20 p-6 flex flex-col justify-between">
-            <span className="text-xs tracking-widest text-black/40">DELIVERY SPEED</span>
+            <span className="text-xs tracking-widest text-black/40">CONSTRUCTION SPEED</span>
             <p className={`${playfair.className} text-3xl font-semibold text-[#886c46]`}>60%</p>
             <span className="text-sm text-black/60">Faster Build Time</span>
           </div>
 
           <div className="relative rounded-3xl bg-white border border-[#886c46]/20 p-6 flex flex-col justify-between">
-            <span className="text-xs tracking-widest text-black/40">DELIVERY SPEED</span>
-            <p className={`${playfair.className} text-3xl font-semibold text-[#886c46]`}>60%</p>
-            <span className="text-sm text-black/60">Faster Build Time</span>
+            <span className="text-xs tracking-widest text-black/40">SUSTAINABILITY</span>
+            <p className={`${playfair.className} text-3xl font-semibold text-[#886c46]`}>40%</p>
+            <span className="text-sm text-black/60">Reduced Material Waste</span>
           </div>
 
           <div className="relative rounded-3xl bg-white border border-[#886c46]/20 p-6 flex flex-col justify-between">
-            <span className="text-xs tracking-widest text-black/40">DELIVERY SPEED</span>
-            <p className={`${playfair.className} text-3xl font-semibold text-[#886c46]`}>60%</p>
-            <span className="text-sm text-black/60">Faster Build Time</span>
+            <span className="text-xs tracking-widest text-black/40">MODULAR FLEXIBILITY</span>
+            <p className={`${playfair.className} text-3xl font-semibold text-[#886c46]`}>3-6 weeks</p>
+            <span className="text-sm text-black/60">Rapid Modular Deployment</span>
           </div>
           <div className="relative rounded-3xl bg-white border border-[#886c46]/20 p-6 flex flex-col justify-between">
-            <span className="text-xs tracking-widest text-black/40">DELIVERY SPEED</span>
-            <p className={`${playfair.className} text-3xl font-semibold text-[#886c46]`}>60%</p>
-            <span className="text-sm text-black/60">Faster Build Time</span>
+            <span className="text-xs tracking-widest text-black/40">STRUCTURAL DURABILITY</span>
+            <p className={`${playfair.className} text-3xl font-semibold text-[#886c46]`}>25+ Years</p>
+            <span className="text-sm text-black/60">Long-Lasting Durability</span>
           </div>
         </motion.div>
 

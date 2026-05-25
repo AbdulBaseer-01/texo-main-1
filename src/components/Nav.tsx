@@ -19,7 +19,7 @@ const productCategories = [
   {
     label: 'Portable Solutions',
     icon: Building2,
-    items: ['Porta Cabin', 'Farmhouse', 'Portable Cabin', 'Bunk House Cabin', 'Containers House', 'Modular Toilet', 'Mobile Toilet', 'Portable Toilet Cabin'],
+    items: ['Porta Cabin', 'Farmhouse', 'Portable Office', 'Bunk House Cabin', 'Containers House', 'Modular Toilet', 'Mobile Toilet', 'Portable Toilet Cabin'],
   },
   {
     label: 'Prefab Solutions',
@@ -176,25 +176,25 @@ const Nav = () => {
                         <ul className="py-1.5">
                           {cat.items.map((item) => (
                             <li key={item}>
-                              <a
-                                href="#"
+                              <Link
+                                href={`/products/${encodeURIComponent(item)}`}
                                 className={`${merri.className} flex items-center gap-2.5 px-4 py-2 text-[12px] font-light text-white/50 transition-all duration-150 hover:bg-white/4 hover:text-white hover:pl-5`}
                               >
                                 <span className="h-px w-2.5 bg-[#886c46]/50 shrink-0 transition-all duration-150 group-hover:w-4" />
                                 {item}
-                              </a>
+                              </Link>
                             </li>
                           ))}
                         </ul>
 
                         {/* Footer CTA */}
                         <div className="border-t border-white/5 p-3">
-                          <a
-                            href="#"
+                          <Link
+                            href="/products"
                             className={`${merri.className} flex items-center justify-center gap-1.5 rounded-lg bg-linear-to-r from-[#886c46]/80 to-[#6f5838]/80 px-3 py-2 text-[10px] uppercase tracking-widest text-white/90 transition-all hover:from-[#886c46] hover:to-[#6f5838]`}
                           >
                             View All
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>

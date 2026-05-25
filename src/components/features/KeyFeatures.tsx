@@ -95,7 +95,7 @@ export default function KeyFeatures() {
             className="group relative rounded-3xl overflow-hidden shadow-2xl shadow-black/15 min-h-140"
           >
             <Image
-              src="/products-hero.png"
+              src="/office/texo-reception.jpg"
               alt="Texo Prefab Key Features"
               fill
               className="object-cover group-hover:scale-105 transition duration-700"
@@ -168,23 +168,14 @@ export default function KeyFeatures() {
                       <span className={`${cormorant.className} text-[0.6rem] tracking-[0.24em] uppercase text-[#886c46] font-medium`}>
                         {feature.label}
                       </span>
-                      <h3 className={`${playfair.className} text-sm font-semibold text-black leading-snug`}>
+                      <h3 className={`${playfair.className} text-2xl font-semibold text-black leading-snug`}>
                         {feature.headline}
                       </h3>
                     </div>
-                    {/* Stat pill */}
-                    <div className="shrink-0 text-right">
-                      <span className={`${playfair.className} text-lg font-bold text-[#886c46] leading-none`}>
-                        {feature.stat}
-                      </span>
-                      <p className={`${cormorant.className} text-[0.6rem] tracking-[0.16em] uppercase text-zinc-400 font-medium`}>
-                        {feature.statLabel}
-                      </p>
-                    </div>
+                    
                   </div>
-                  {/* Divider */}
-                  <div className="h-px w-8 bg-[#886c46]/25 mb-2 group-hover:w-14 transition-all duration-500" />
-                  <p className={`${cormorant.className} text-zinc-500 text-[0.92rem] leading-relaxed font-light`}>
+                  
+                  <p className={`text-black text-lg leading-relaxed font-light`}>
                     {feature.body}
                   </p>
                 </div>

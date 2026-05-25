@@ -1,9 +1,10 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Playfair_Display, Inter } from 'next/font/google';
 import { motion } from 'framer-motion';
 import { Home, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
+
 const playfair = Playfair_Display({
   subsets: ['latin'],
   weight: ['500', '600', '700'],
@@ -13,9 +14,34 @@ const inter = Inter({
   subsets: ['latin'],
   weight: ['400', '500'],
 });
+
+function CountUpNumber({ end, duration = 2000, trigger = true }: { end: number; duration?: number; trigger?: boolean }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!trigger) return;
+    
+    let start = 0;
+    setCount(0);
+    const increment = end / (duration / 16);
+    const interval = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        setCount(end);
+        clearInterval(interval);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+    return () => clearInterval(interval);
+  }, [end, duration, trigger]);
+
+  return <>{count}</>;
+}
+
 const CustomerReview = () => {
     const [reviewIndex, setReviewIndex] = useState(0);
-
+    const [statsInView, setStatsInView] = useState(false);
     const nextReview = () => {
     setReviewIndex((prev) => (prev + 1) % reviews.length);
   };
@@ -127,11 +153,12 @@ const CustomerReview = () => {
               </div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            <motion.div 
+          initial={{ opacity: 0.7, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          onViewportEnter={() => setStatsInView(prev => !prev)}
+          viewport={{ once: false }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               className="space-y-6"
             >
               <div>
@@ -144,11 +171,11 @@ const CustomerReview = () => {
               </p>
               <div className="grid grid-cols-2 gap-6 pt-4">
                 <div className="bg-linear-to-br from-[#f8f5f0] to-[#f0ebe0] rounded-2xl p-6 border border-[#886c46]/20">
-                  <p className={`${playfair.className} text-3xl font-bold text-[#886c46] mb-1`}>1300+</p>
+                  <p className={`${playfair.className} text-3xl font-bold text-[#886c46] mb-1`}><CountUpNumber end={1300} trigger={statsInView}/>+</p>
                   <p className={`${inter.className} text-black/70 text-sm`}>Projects Delivered</p>
                 </div>
                 <div className="bg-linear-to-br from-[#f8f5f0] to-[#f0ebe0] rounded-2xl p-6 border border-[#886c46]/20">
-                  <p className={`${playfair.className} text-3xl font-bold text-[#886c46] mb-1`}>98%</p>
+                  <p className={`${playfair.className} text-3xl font-bold text-[#886c46] mb-1`}><CountUpNumber end={98} trigger={statsInView}/>%</p>
                   <p className={`${inter.className} text-black/70 text-sm`}>Client Satisfaction</p>
                 </div>
               </div>

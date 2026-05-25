@@ -17,80 +17,80 @@ const merri = Merriweather({
 
 const projects = [
   {
-    region: "Lorem",
-    state: "Ipsum Dolor",
-    title: "Lorem Ipsum Project Alpha",
+    region: "Maharashtra",
+    state: "Mumbai",
+    title: "Coastal Prefab Warehousing",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Delivered a modular warehousing solution for a logistics park on the Mumbai coast, reducing on-site construction time by 60%.",
     year: "2023",
-    value: "₹000 Cr",
+    value: "₹115 Cr",
   },
   {
-    region: "Dolor",
-    state: "Sit Amet",
-    title: "Dolor Sit Infrastructure",
+    region: "Karnataka",
+    state: "Bengaluru",
+    title: "Affordable Modular Housing",
     description:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    year: "2022",
-    value: "₹000 Cr",
+      "Built a cluster of prefabricated homes using sustainable materials for a rapid urban housing project in Bengaluru.",
+    year: "2024",
+    value: "₹72 Cr",
   },
   {
-    region: "Amet",
-    state: "Consectetur",
-    title: "Amet Coastal Development",
+    region: "West Bengal",
+    state: "Kolkata",
+    title: "Healthcare Outreach Unit",
     description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "Developed mobile medical units for community healthcare outreach across Kolkata suburbs and remote districts.",
     year: "2023",
-    value: "₹000 Cr",
+    value: "₹28 Cr",
   },
   {
-    region: "Elit",
-    state: "Adipiscing",
-    title: "Elit Industrial Expansion",
+    region: "Tamil Nadu",
+    state: "Chennai",
+    title: "Solar Control Room Pavilion",
     description:
-      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    year: "2021",
-    value: "₹000 Cr",
+      "Installed a prefab control room for a solar microgrid facility, enabling fast deployment and reliable operations.",
+    year: "2024",
+    value: "₹34 Cr",
   },
   {
-    region: "Sed",
-    state: "Eiusmod",
-    title: "Sed Smart Grid System",
+    region: "Gujarat",
+    state: "Ahmedabad",
+    title: "Modular Office Campus",
     description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+      "Delivered a modern modular office campus for a technology services provider with flexible workspaces and rapid handover.",
     year: "2022",
-    value: "₹000 Cr",
+    value: "₹95 Cr",
   },
   {
-    region: "Tempor",
-    state: "Incididunt",
-    title: "Tempor Terminal Project",
+    region: "Telangana",
+    state: "Hyderabad",
+    title: "Industrial Lab Facility",
     description:
-      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.",
+      "Created a prefabricated R&D lab campus for an industrial manufacturing client, with turnkey utilities pre-installed.",
     year: "2023",
-    value: "₹000 Cr",
+    value: "₹48 Cr",
   },
   {
-    region: "Labore",
-    state: "Dolore",
-    title: "Labore Port Upgrade",
+    region: "Rajasthan",
+    state: "Jaipur",
+    title: "Prefab School Campus",
     description:
-      "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit.",
-    year: "2021",
-    value: "₹000 Cr",
-  },
-  {
-    region: "Magna",
-    state: "Aliqua",
-    title: "Magna Highway Project",
-    description:
-      "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.",
+      "Delivered a sustainable modular school campus with classrooms, labs, and administrative blocks for a rural education trust.",
     year: "2022",
-    value: "₹000 Cr",
+    value: "₹22 Cr",
+  },
+  {
+    region: "Punjab",
+    state: "Ludhiana",
+    title: "Portable Security Cabin Network",
+    description:
+      "Supplied and installed a network of portable security cabins across an industrial park, each with HVAC and security fit-outs.",
+    year: "2023",
+    value: "₹18 Cr",
   },
 ];
 
-const regions = ["North", "West", "South", "East", "Central"];
+const regions = Array.from(new Set(projects.map((project) => project.region)));
 
 interface Props {
   open: boolean;

@@ -307,19 +307,28 @@ export default function OurPortfolio() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
           transition={{ duration: 0.9, ease: "easeOut" }}
-          className="mb-16 max-w-screen text-center md:text-left"
+          className="mb-16 max-w-screen text-center"
         >
-          <p className="uppercase tracking-widest text-sm text-[#886c46] mb-3">
-            Our Portfolio
-          </p>
+          <div
+                  
+                  className="mb-6 inline-block"
+                >
+                  <span className="inline-flex items-center gap-2 rounded-full border border-[#886c46]/30 bg-[#886c46] px-5 py-2 text-xs font-light tracking-widest text-[#f8f5f0] backdrop-blur-sm">
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#f8f5f0] opacity-75"></span>
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-[#f8f5f0]"></span>
+                    </span>
+                    OUR PORTFOLIO
+                  </span>
+                </div>
           <h2
             className={`${playfair.className} text-3xl md:text-6xl font-semibold bg-linear-to-r from-black via-[#886c46] to-black bg-clip-text text-transparent mb-4`}
           >
-            Homes we've transformed, families we've satisfied
+            Spaces Crafted for Modern Living & Inspired Workspaces
           </h2>
           <p className="text-black/60">
-            Every project reflects our commitment to quality, transparency and
-            customer happiness.
+            Discover thoughtfully designed prefab spaces that blend innovation,
+  sustainability, comfort, and timeless architectural elegance.
           </p>
         </motion.div>
 

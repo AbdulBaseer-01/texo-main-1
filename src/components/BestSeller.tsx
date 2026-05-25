@@ -25,21 +25,21 @@ const bestSellerOffices: Office[] = [
   {
     id: 1,
     name: "A Frame Cabin",
-    image: "/siteoffice-2.webp",
+    image: "/products/woodenseries/aframe/a-frame-hero.png",
     features: ["Soundproof walls", "Climate control", "Premium finishes"],
     badge: "Most Popular"
   },
   {
     id: 2,
     name: "Wooden House",
-    image: "/siteoffice-2.webp",
+    image: "/products/woodenseries/wooden/wooden-house-main.jpg",
     features: ["Conference setup", "Dual entry", "Smart lighting"],
     badge: "Best Value"
   },
   {
     id: 3,
     name: "Arc Pod",
-    image: "/siteoffice-2.webp",
+    image: "/products/woodenseries/arcpod/arc-pod-main.jpg",
     features: ["Creative layout", "Glass walls", "Tech integrated"]
   }
 ]
@@ -62,7 +62,7 @@ const BestSeller = () => {
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#6f5838] rounded-full blur-[120px]" />
       </div> */}
 
-      <div className="absolute inset-0 opacity-[0.03]" 
+      {/* <div className="absolute inset-0 opacity-[0.03]" 
         style={{
           backgroundImage: `linear-gradient(#886c46 1px, transparent 1px), linear-gradient(90deg, #886c46 1px, transparent 1px)`,
           backgroundSize: '50px 50px'
@@ -72,11 +72,11 @@ const BestSeller = () => {
       <motion.div 
         style={{ y: y1 }}
         className="absolute top-40 right-20 w-32 h-32 border border-[#886c46]/20 rounded-lg rotate-45"
-      />
-      <motion.div 
+      /> */}
+      {/* <motion.div 
         style={{ y: y2 }}
         className="absolute bottom-60 left-32 w-24 h-24 border border-[#886c46]/20 rounded-full"
-      />
+      /> */}
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-12">
         
@@ -111,7 +111,7 @@ const HeaderSection = () => {
       >
         <span className="inline-flex items-center gap-2 rounded-full border border-[#886c46]/30 bg-[#886c46] px-5 py-2 text-xs font-light tracking-widest text-[#f8f5f0] backdrop-blur-sm">
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#f8f5f0] opacity-75"></span>
+            <span className="absolute inline-flex h-full w-full rounded-full bg-[#f8f5f0] opacity-75"></span>
             <span className="relative inline-flex h-2 w-2 rounded-full bg-[#f8f5f0]"></span>
           </span>
           BESTSELLERS

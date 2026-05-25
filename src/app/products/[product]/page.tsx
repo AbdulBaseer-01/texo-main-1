@@ -324,11 +324,68 @@ const ProductPage = () => {
           </div>
         </div>
       </section>
+      <TechSpecs product={product} />
+      {/* ─── TRUST BAND ──────────────────────────────────────────────── */}
+      <section ref={trustRef} className="relative py-24 px-6 md:px-12 bg-black/3 border-t border-black/5">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isTrustInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8 }}
+            className="mb-12"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <motion.div
+                initial={{ width: 0 }}
+                animate={isTrustInView ? { width: '64px' } : { width: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="h-1 rounded-full bg-linear-to-r from-[#886c46] to-[#886c46]/40"
+              />
+              <span className={`${merri.className} text-xs uppercase tracking-[0.3em] text-[#886c46] font-light`}>Our Track Record</span>
+            </div>
+            <h2 className={`${playfair.className} text-4xl md:text-5xl font-semibold text-black mb-4`}>
+              Trusted by Thousands
+            </h2>
+            <p className={`${merri.className} text-black/50 font-light text-lg`}>
+              Our commitment to excellence speaks for itself
+            </p>
+          </motion.div>
 
-      <Variants product={product}/>
-
-      
-
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { icon: MapPin, value: product.trustBand.citiesCovered, label: 'Cities Covered', delay: 0.2 },
+              { icon: CheckCircle, value: product.trustBand.completedProjects, label: 'Projects Completed', delay: 0.4 },
+              { icon: Star, value: product.trustBand.customerSatisfaction, label: 'Customer Satisfaction', suffix: '%', delay: 0.6 },
+            ].map(({ icon: Icon, value, label, suffix, delay }, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
+                animate={isTrustInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+                transition={{ duration: 0.8, delay }}
+                className="group relative p-8 bg-white border border-black/10 rounded-2xl hover:border-[#886c46]/30 hover:shadow-xl hover:shadow-[#886c46]/5 transition-all duration-300 overflow-hidden"
+              >
+                <span className={`${playfair.className} absolute top-4 right-5 text-7xl font-bold text-black/4 group-hover:text-black/6 transition-colors`}>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div className="w-14 h-14 mb-6 rounded-2xl bg-linear-to-br from-[#886c46] to-[#6f5838] flex items-center justify-center shadow-lg shadow-[#886c46]/20 group-hover:scale-110 transition-transform">
+                  <Icon className="w-7 h-7 text-white" strokeWidth={1.5} />
+                </div>
+                <div className={`${playfair.className} text-5xl font-bold text-black mb-2`}>
+                  <CountUp end={value} />
+                  {suffix && <span>{suffix}</span>}
+                </div>
+                <p className={`${merri.className} text-black/50 font-light`}>{label}</p>
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  animate={isTrustInView ? { scaleX: 1 } : { scaleX: 0 }}
+                  transition={{ duration: 0.8, delay: delay + 0.2 }}
+                  className="absolute bottom-0 left-0 h-1 w-full origin-left bg-linear-to-r from-[#886c46] via-[#a8926d] to-[#886c46]"
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* ─── FAQ ─────────────────────────────────────────────────────── */}
       <section className="relative py-24 px-6 md:px-12 border-t border-black/5">
         <div className="max-w-4xl mx-auto">
@@ -411,68 +468,11 @@ const ProductPage = () => {
           </div>
         </div>
       </section>
+      
+      
+      <Variants product={product}/>
 
-      {/* ─── TRUST BAND ──────────────────────────────────────────────── */}
-      <section ref={trustRef} className="relative py-24 px-6 md:px-12 bg-black/3 border-t border-black/5">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isTrustInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8 }}
-            className="mb-12"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <motion.div
-                initial={{ width: 0 }}
-                animate={isTrustInView ? { width: '64px' } : { width: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="h-1 rounded-full bg-linear-to-r from-[#886c46] to-[#886c46]/40"
-              />
-              <span className={`${merri.className} text-xs uppercase tracking-[0.3em] text-[#886c46] font-light`}>Our Track Record</span>
-            </div>
-            <h2 className={`${playfair.className} text-4xl md:text-5xl font-semibold text-black mb-4`}>
-              Trusted by Thousands
-            </h2>
-            <p className={`${merri.className} text-black/50 font-light text-lg`}>
-              Our commitment to excellence speaks for itself
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { icon: MapPin, value: product.trustBand.citiesCovered, label: 'Cities Covered', delay: 0.2 },
-              { icon: CheckCircle, value: product.trustBand.completedProjects, label: 'Projects Completed', delay: 0.4 },
-              { icon: Star, value: product.trustBand.customerSatisfaction, label: 'Customer Satisfaction', suffix: '%', delay: 0.6 },
-            ].map(({ icon: Icon, value, label, suffix, delay }, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                animate={isTrustInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-                transition={{ duration: 0.8, delay }}
-                className="group relative p-8 bg-white border border-black/10 rounded-2xl hover:border-[#886c46]/30 hover:shadow-xl hover:shadow-[#886c46]/5 transition-all duration-300 overflow-hidden"
-              >
-                <span className={`${playfair.className} absolute top-4 right-5 text-7xl font-bold text-black/4 group-hover:text-black/6 transition-colors`}>
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <div className="w-14 h-14 mb-6 rounded-2xl bg-linear-to-br from-[#886c46] to-[#6f5838] flex items-center justify-center shadow-lg shadow-[#886c46]/20 group-hover:scale-110 transition-transform">
-                  <Icon className="w-7 h-7 text-white" strokeWidth={1.5} />
-                </div>
-                <div className={`${playfair.className} text-5xl font-bold text-black mb-2`}>
-                  <CountUp end={value} />
-                  {suffix && <span>{suffix}</span>}
-                </div>
-                <p className={`${merri.className} text-black/50 font-light`}>{label}</p>
-                <motion.div
-                  initial={{ scaleX: 0 }}
-                  animate={isTrustInView ? { scaleX: 1 } : { scaleX: 0 }}
-                  transition={{ duration: 0.8, delay: delay + 0.2 }}
-                  className="absolute bottom-0 left-0 h-1 w-full origin-left bg-linear-to-r from-[#886c46] via-[#a8926d] to-[#886c46]"
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* ─── RELATED PRODUCTS ────────────────────────────────────────── */}
       {relatedProducts.length > 0 && (
@@ -586,7 +586,7 @@ const ProductPage = () => {
           </div>
         </section>
       )}
-      <TechSpecs product={product} />
+      
 
       {/* ─── CONTACT ─────────────────────────────────────────────────── */}
       <Contact />

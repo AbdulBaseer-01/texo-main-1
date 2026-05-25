@@ -21,8 +21,8 @@ const OurProducts = () => {
     category: 'Residential',
     title: 'Wooden Series',
     description:
-      'Premium modular wooden homes crafted for modern living. Our Wooden Series combines natural aesthetics, structural strength, and functional design for residential comfort and long-term durability.',
-    image: '/siteoffice-2.webp',
+      'Discover our signature luxury line, including the Arc Pod, A-Frame Cabin, Smart House, and other modular wooden structures. Designed to blend elegance, comfort, and sustainability.',
+    image: '/products/woodenseries/wooden/wooden-house-main.jpg',
     features: ['Quick Installation', 'Energy Efficient', 'Customizable Design'],
     link: '/products/modular-homes'
   },
@@ -31,8 +31,8 @@ const OurProducts = () => {
     category: 'Residential',
     title: 'Prefab Solutions',
     description:
-      'Versatile prefab housing solutions designed for rapid construction and flexible use. Ideal for farmhouses, site offices, and modular residences built with precision and efficiency.',
-    image: '/siteoffice-2.webp',
+      'Whether it’s a farmhouse, site office, or full-scale prefab house, our modular builds deliver speed, flexibility, and premium design.',
+    image: '/products/prefab/house/prefab-homes.png',
     features: ['Durable Structure', 'Flexible Layouts', 'Low Maintenance'],
     link: '/products/luxury-villas'
   },
@@ -41,8 +41,8 @@ const OurProducts = () => {
     category: 'Commercial',
     title: 'Portable Solutions',
     description:
-      'Smart portable cabins and modular units engineered for mobility and convenience. Suitable for temporary offices, workforce housing, and compact commercial setups.',
-    image: '/siteoffice-2.webp',
+      'Explore porta cabins, container houses, bunkhouses, mobile toilets, modular restrooms, and compact office setups, built for convenience and quick deployment.',
+    image: '/products/portable/office/main.webp',
     features: ['Compact Design', 'Quick Deployment', 'Weather Resistant'],
     link: '/products/office-spaces'
   },
@@ -51,8 +51,8 @@ const OurProducts = () => {
     category: 'Commercial',
     title: 'Specialized Structures',
     description:
-      'Custom-built modular structures tailored for specific commercial and institutional needs. Designed for efficiency, scalability, and reliable performance.',
-    image: '/siteoffice-2.webp',
+      'Smartly designed prefab schools, clinics, restaurants, factory cabins, electrical rooms, smoking zones, and more, all tailored to perform and built to scale.',
+    image: '/products/special/restaurant/main.webp',
     features: ['Scalable Solutions', 'Custom Configurations', 'High Durability'],
     link: '/products/retail-stores'
   },
@@ -61,8 +61,8 @@ const OurProducts = () => {
     category: 'Industrial',
     title: 'PUF Insulated Cabins',
     description:
-      'Thermally insulated modular cabins built for temperature control and structural stability. Ideal for controlled environments requiring energy efficiency and strength.',
-    image: '/siteoffice-2.webp',
+      'From solar control rooms to clean rooms and health centers, our PUF cabins ensure thermal protection, energy efficiency, and structural reliability.',
+    image: '/products/puf/control/main.webp',
     features: ['Thermal Insulation', 'Energy Efficient', 'Robust Construction'],
     link: '/products/warehouses'
   },
@@ -72,7 +72,7 @@ const OurProducts = () => {
     title: 'Security Solutions',
     description:
       'Secure and compact modular units designed for monitoring, guarding, and controlled access environments. Built with reinforced materials for dependable protection.',
-    image: '/siteoffice-2.webp',
+    image: '/products/security/security-cabin/security-cabin-ai.png',
     features: ['Strong Build', 'Weather Resistant', 'Easy Installation'],
     link: '/products/factory-units'
   }

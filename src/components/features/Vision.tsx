@@ -143,7 +143,7 @@ export default function Vision() {
                 <div className="h-px w-10 bg-[#886c46]/30 mb-4 group-hover:w-16 transition-all duration-500" />
 
                 {/* Body */}
-                <p className={`${cormorant.className} text-zinc-500 text-base leading-relaxed font-light`}>
+                <p className={`text-lg text-black  leading-relaxed font-light`}>
                   {pillar.body}
                 </p>
               </div>

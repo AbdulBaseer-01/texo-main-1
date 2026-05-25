@@ -14,6 +14,7 @@ import KeyFeatures from '@/components/features/KeyFeatures'
 import Advantages from '@/components/features/Advantage'
 import Container from '@/components/container/Container'
 import AddOns from '@/components/addons/AddOns'
+import Link from 'next/link'
 
 const merri = Merriweather({
   subsets: ['latin'],
@@ -42,15 +43,15 @@ const externalItems = [
 ]
 
 const internalItems = [
-  { id: 1, name: 'Kitchen',      image: '/addons/kitchen.png'            },
-  { id: 2, name: 'Vanity',        image: '/addons/vanity.png'     },
-  { id: 3, name: 'Wardrobe',          image: '/addons/wardrobe.png'            },
-  { id: 4, name: 'Bed',    image: '/addons/bed.png'       },
-  { id: 5, name: 'Side Table',        image: '/addons/side table.png'     },
-  { id: 6, name: 'Fold-out Table',   image: '/addons/fold-out-table.png'    },
-  { id: 7, name: 'Blind Curtain',    image: '/addons/blind-curtain.png'       },
-  { id: 8, name: 'Shower Glass Partition',    image: '/addons/shower-glass-partition.png'       },
-  { id: 9, name: 'Vanity Mirror',    image: '/addons/vanity-mirror.png'       },
+  { id: 1, name: 'Kitchen',      image: '/addons/int-kitchen.png'            },
+  { id: 2, name: 'Vanity',        image: '/addons/int-vanity.png'     },
+  { id: 3, name: 'Wardrobe',          image: '/addons/int-wardrobe.png'            },
+  { id: 4, name: 'Bed',    image: '/addons/int-bed.png'       },
+  { id: 5, name: 'Side Table',        image: '/addons/side-table.png'     },
+  { id: 6, name: 'Fold-out Table',   image: '/addons/fold-table.png'    },
+  { id: 7, name: 'Blind Curtain',    image: '/addons/blind-curtains.png'       },
+  { id: 8, name: 'Shower Glass Partition',    image: '/addons/bathroom.png'       },
+  { id: 9, name: 'Vanity Mirror',    image: '/addons/mirror.png'       },
   { id: 10, name: 'Bathroom Accessories',    image: '/addons/bathroom accessories.png'       },
 ]
 
@@ -81,32 +82,44 @@ const certs = ['BIS Certified', 'ISO 9001', 'MSME Registered', 'Green Build Comp
 
 const faqs = [
   {
-    q: 'How long does it take to manufacture and deliver a prefab cabin?',
-    a: 'Lead times vary by complexity: a standard portable cabin or security booth typically takes 7–14 working days from order confirmation. Larger structures like prefab schools or bunk house complexes run 3–6 weeks. Delivery is scheduled alongside manufacturing so the unit arrives site-ready without delay.',
+    q: 'What is prefab construction and how is it different from traditional building?',
+    a: 'Prefab construction involves building structures offsite in controlled factory conditions, then assembling them on location. This allows for faster delivery, better quality control, and minimized environmental impact, unlike traditional construction, which is time-consuming and weather-dependent.',
   },
   {
-    q: 'Can the structures be expanded or modified after installation?',
-    a: 'Absolutely. Modular expansion is a core design principle. You can add bays, stack units vertically, extend floor plates, or upgrade interiors at any point. We maintain records of every delivered unit so our engineering team can design precise additions that integrate seamlessly.',
+    q: 'How long does it take to deliver and install a Texo prefab structure?',
+    a: 'Our Plug & Play prefab units are delivered up to 50% faster than conventional construction. Depending on the size and complexity, delivery and on-site assembly can happen within 7–30 days.',
   },
   {
-    q: 'What structural standards do your cabins comply with?',
-    a: 'All structures are engineered to comply with IS 875 for wind loads, IS 1893 for seismic considerations, and NBC fire safety norms. Site offices and accommodation units also meet applicable factory and labour welfare regulations. Documentation packets are provided with every order.',
+    q: 'Can I customize the design of my prefab unit?',
+    a: 'Yes, we offer fully customizable prefab solutions tailored to your space, purpose, and style, from interiors and layouts to material finishes.',
   },
   {
-    q: 'Do you handle foundation work and site preparation?',
-    a: 'Our turnkey packages include site survey, foundation design (PCC or anchor-bolt footings depending on soil type), delivery, installation, and commissioning. For clients who prefer to manage civil work independently, we supply detailed foundation drawings at no extra charge.',
+    q: 'Are Texo prefab structures durable and weatherproof?',
+    a: 'Absolutely. Our structures are built with European-grade materials and tested to withstand extreme Indian climates, from monsoons to high heat.',
   },
   {
-    q: 'What insulation options are available?',
-    a: 'We offer three primary insulation systems: PUF sandwich panels (best-in-class thermal performance, ideal for control rooms and clean rooms), mineral wool panels (fire-rated with excellent acoustic performance), and EPS-core panels (lightweight and cost-effective for temporary accommodations). Our team recommends the right system based on your climate zone and occupancy type.',
+    q: 'What is the lifespan of a Texo prefab building?',
+    a: 'With proper maintenance, our prefab buildings can last 30+ years. The use of high-strength steel frames and premium finishes ensures long-term durability.',
   },
   {
-    q: 'Is financing or rental available for short-term projects?',
-    a: 'Yes. We offer structured rental programmes for construction site offices, portable toilets, and temporary accommodation — with monthly rates and flexible return windows. For outright purchase, we work with several NBFCs to facilitate easy financing for MSMEs and large contractors alike.',
+    q: 'Is Texo prefab damage environment?',
+    a: 'No. Our process generates less onsite waste, uses recyclable materials, and promotes sustainable building practices.',
   },
   {
-    q: 'Can you produce custom branded structures for commercial use?',
-    a: 'Our specialised structures division handles fully branded commercial cabins — from restaurant units and retail kiosks to branded ATM enclosures and smoking rooms for hospitality chains. We manage everything from concept renders to final branded installation.',
+    q: 'Can I relocate or expand my prefab structure later?',
+    a: 'Yes! Our modular designs are mobility-ready & Scable, perfect for businesses or individuals who may move or expand.',
+  },
+  {
+    q: 'What kind of applications or industries can use Texo prefab structures?',
+    a: 'We serve a wide range of sectors, including residential, hospitality, offices, healthcare, retail, and educational institutions.',
+  },
+  {
+    q: 'Do you provide installation and after-sales support?',
+    a: 'Yes. Our Logistics & Installation team ensures professional setup, and we offer ongoing support and maintenance when needed.',
+  },
+  {
+    q: 'Are Texo prefab homes legal and approved by local authorities?',
+    a: 'Yes. All our units comply with local building codes, safety norms, and are approved where required.',
   },
 ]
 
@@ -149,7 +162,7 @@ const FAQItem = ({ q, a, index }: { q: string; a: string; index: number }) => {
             transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
             className="overflow-hidden"
           >
-            <p className={`${merri.className} text-sm font-light leading-[1.9] text-black/60 pb-7 pr-14`}>
+            <p className={`${merri.className} text-md font-light leading-[1.9] text-black/90 pb-7 pr-14`}>
               {a}
             </p>
           </motion.div>
@@ -169,7 +182,7 @@ const Features = () => {
 <section className="relative bg-[#0d0b08] pt-22 pb-24 px-6 md:px-12 overflow-hidden h-screen">
 
   <Image
-    src="/products-hero.png"
+    src="/office/texo-1.jpg"
     alt="Products Hero"
     fill
     priority
@@ -230,7 +243,7 @@ const Features = () => {
             transition={{ duration: 0.9, delay: 0.35 }}
             className="block bg-linear-to-r from-white via-[#886c46] to-white bg-clip-text text-transparent drop-shadow-[0_0_48px_rgba(136,108,70,0.2)]"
           >
-            Engineered to Last.
+            Engineered to Last. 
           </motion.span>
         </motion.h1>
 
@@ -253,23 +266,14 @@ const Features = () => {
           transition={{ duration: 0.8, delay: 0.28 }}
           className={`${merri.className} text-base md:text-lg font-light leading-[1.9] text-white max-w-2xl mx-auto`}
         >
-          For over 18 years, we have delivered modular structures that site managers,
-          contractors, and enterprise clients trust for their most demanding projects
-          across India.
+          Build premium, sustainable, modular structures in just days. Designed for performance, built for the future.
         </motion.p>
 
       </div>
     </div>
   </div>
 
-  {/* Corner accents */}
-  <div className="absolute top-16 left-6 md:left-12 w-8 h-8 border-t border-l border-[#886c46]/40 pointer-events-none z-3" />
-  <div className="absolute top-16 right-6 md:right-12 w-8 h-8 border-t border-r border-[#886c46]/40 pointer-events-none z-3" />
-  <div className="absolute bottom-4 left-6 md:left-12 w-8 h-8 border-b border-l border-[#886c46]/40 pointer-events-none z-3" />
-  <div className="absolute bottom-4 right-6 md:right-12 w-8 h-8 border-b border-r border-[#886c46]/40 pointer-events-none z-3" />
-
-  {/* Bottom rule */}
-  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[#886c46]/40 to-transparent z-3" />
+  
 </section>
 
       {/* ── BRAND PILLARS ─────────────────────────────────────────────────────── */}
@@ -417,6 +421,7 @@ const Features = () => {
               <p className={`${merri.className} text-sm font-light leading-[1.9] text-black/55 mb-6`}>
                 Can{`'`}t find your answer below? Our team responds to all enquiries within one business day — with a real answer, not a template.
               </p>
+              <Link href={'/contact-us'} >
               <motion.button
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
@@ -425,6 +430,7 @@ const Features = () => {
                 Contact Our Experts
                 <ArrowUpRight className="w-4 h-4" />
               </motion.button>
+              </Link>
             </div>
           </div>
 
@@ -483,10 +489,10 @@ const Features = () => {
         </div>
       </section>
       <AddOns
-  heroImage="/addons/main-house.png"
-  externalItems={externalItems}
-  internalItems={internalItems}
-/>
+        heroImage="/addons/farm-house-2.png"
+        externalItems={externalItems}
+        internalItems={internalItems}
+      />
 
     </div>
   )

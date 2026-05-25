@@ -21,13 +21,36 @@ const merri = Merriweather({
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!form.name || !form.email || !form.message) return;
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const payload = await res.json();
+
+      if (!res.ok) {
+        throw new Error(payload.error ?? "Unable to send your message");
+      }
+
+      setSubmitted(true);
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unable to send your message");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -283,15 +306,22 @@ export default function Contact() {
                   whileHover={{ scale: 1.03, y: -2 }}
                   whileTap={{ scale: 0.97 }}
                   onClick={handleSubmit}
+                  disabled={loading}
                   className="inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-black text-white text-sm font-medium shadow-lg shadow-black/10 hover:bg-[#886c46] hover:shadow-[#886c46]/25 transition-all duration-300 group"
                 >
-                  Send Message
+                  {loading ? "Sending..." : "Send Message"}
                   <Send
                     className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
                     strokeWidth={2}
                   />
                 </motion.button>
               </div>
+
+              {error ? (
+                <p className="text-sm text-red-600">
+                  {error}
+                </p>
+              ) : null}
 
             </div>
           )}

@@ -28,112 +28,112 @@ const merri = Merriweather({
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
-const departments = ['All', 'Lorem', 'Ipsum', 'Dolor', 'Sit', 'Amet'];
-const jobTypes = ['All Types', 'Lorem', 'Ipsum', 'Dolor'];
+const departments = ['All', 'Operations', 'Logistics', 'Sales', 'Creative', 'Finance', 'Engineering', 'HR'];
+const jobTypes = ['All Types', 'Full-Time', 'Part-Time', 'Contract'];
 
 const jobs = [
   {
     id: 1,
-    title: 'Lorem Ipsum Dolor',
-    department: 'Lorem',
+    title: 'Production Supervisor / Engineer',
+    department: 'Operations',
     location: 'Hyderabad, TG',
-    type: 'Lorem',
-    experience: '5–8 years',
-    posted: '3 days ago',
+    type: 'Full-Time',
+    experience: '2+ years',
+    posted: 'Just posted',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    tags: ['Lorem', 'Ipsum', 'Dolor'],
+      'Lead production workflows, ensure quality control, and support modular manufacturing processes in a fast-moving prefab environment.',
+    tags: ['Production', 'Manufacturing', 'Quality'],
     urgent: true,
   },
   {
     id: 2,
-    title: 'Ipsum Dolor Sit',
-    department: 'Ipsum',
+    title: 'Warehouse & Inventory Manager',
+    department: 'Logistics',
     location: 'Hyderabad, TG',
-    type: 'Lorem',
-    experience: '3–5 years',
-    posted: '1 week ago',
+    type: 'Full-Time',
+    experience: '2+ years',
+    posted: '3 days ago',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam quis nostrud exercitation.',
-    tags: ['Lorem', 'Ipsum', 'Dolor'],
+      'Manage inventory, warehouse operations, and material flow for prefab production with accuracy and efficiency.',
+    tags: ['Inventory', 'Warehouse', 'Logistics'],
     urgent: false,
   },
   {
     id: 3,
-    title: 'Dolor Sit Amet',
-    department: 'Dolor',
+    title: 'Sales Executive',
+    department: 'Sales',
     location: 'Hyderabad, TG',
-    type: 'Lorem',
-    experience: '7+ years',
-    posted: '2 weeks ago',
+    type: 'Full-Time',
+    experience: '2+ years',
+    posted: 'Just posted',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate.',
-    tags: ['Lorem', 'Ipsum', 'Dolor'],
-    urgent: true,
+      'Drive business development, manage client relationships, and close sales for modular solutions and prefab projects.',
+    tags: ['Sales', 'Business', 'Clients'],
+    urgent: false,
   },
   {
     id: 4,
-    title: 'Sit Amet Consectetur',
-    department: 'Sit',
+    title: 'CRM & Lead Manager',
+    department: 'Sales',
     location: 'Hyderabad, TG',
-    type: 'Lorem',
-    experience: '2–4 years',
+    type: 'Full-Time',
+    experience: '2+ years',
     posted: '5 days ago',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident.',
-    tags: ['Lorem', 'Ipsum', 'Dolor'],
+      'Maintain lead pipelines, optimize CRM workflows, and support sales follow-up across construction and modular accounts.',
+    tags: ['CRM', 'Leads', 'Sales'],
     urgent: false,
   },
   {
     id: 5,
-    title: 'Amet Consectetur Elit',
-    department: 'Amet',
+    title: 'Video Editor, Shooter & Graphic Designer',
+    department: 'Creative',
     location: 'Hyderabad, TG',
-    type: 'Lorem',
-    experience: '4–6 years',
+    type: 'Full-Time',
+    experience: '2+ years',
     posted: '1 week ago',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error.',
-    tags: ['Lorem', 'Ipsum', 'Dolor'],
+      'Create compelling video content, shoot project visuals, and design marketing assets for Texo Prefab World.',
+    tags: ['Video', 'Design', 'Creative'],
     urgent: false,
   },
   {
     id: 6,
-    title: 'Consectetur Elit Sed',
-    department: 'Lorem',
+    title: 'Accountant',
+    department: 'Finance',
     location: 'Hyderabad, TG',
-    type: 'Dolor',
-    experience: '3+ years',
+    type: 'Full-Time',
+    experience: '2+ years',
     posted: '4 days ago',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo enim ipsam voluptatem quia voluptas sit.',
-    tags: ['Lorem', 'Ipsum', 'Dolor'],
+      'Handle financial records, billing, vendor payments, and accounting processes for our modular construction business.',
+    tags: ['Finance', 'Accounting', 'Billing'],
     urgent: false,
   },
   {
     id: 7,
-    title: 'Elit Sed Do',
-    department: 'Ipsum',
+    title: 'Design Engineer',
+    department: 'Engineering',
     location: 'Hyderabad, TG',
-    type: 'Lorem',
-    experience: '4–7 years',
+    type: 'Full-Time',
+    experience: '2+ years',
     posted: '2 days ago',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis autem vel eum iure reprehenderit.',
-    tags: ['Lorem', 'Ipsum', 'Dolor'],
+      'Develop prefab design drawings, coordinate technical specs, and support modular design execution for projects.',
+    tags: ['Design', 'Engineering', 'Drafting'],
     urgent: false,
   },
   {
     id: 8,
-    title: 'Sed Do Eiusmod',
-    department: 'Dolor',
+    title: 'HR Executive',
+    department: 'HR',
     location: 'Hyderabad, TG',
-    type: 'Lorem',
-    experience: '3–6 years',
+    type: 'Full-Time',
+    experience: '2+ years',
     posted: '6 days ago',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. At vero eos et accusamus et iusto odio.',
-    tags: ['Lorem', 'Ipsum', 'Dolor'],
+      'Support recruitment, employee engagement, and HR administration for a growing prefab and construction team.',
+    tags: ['HR', 'Recruiting', 'People'],
     urgent: false,
   },
 ];
@@ -149,7 +149,7 @@ const perks = [
 
 // ─── JOB CARD ─────────────────────────────────────────────────────────────────
 
-function JobCard({ job, index }: { job: (typeof jobs)[0]; index: number }) {
+function JobCard({ job, index, onApply }: { job: (typeof jobs)[0]; index: number; onApply: (job: (typeof jobs)[0]) => void }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.15 });
 
@@ -222,6 +222,7 @@ function JobCard({ job, index }: { job: (typeof jobs)[0]; index: number }) {
         </span>
         <motion.button
           whileHover={{ x: 2 }}
+          onClick={() => onApply(job)}
           className={`${merri.className} group/btn flex items-center gap-2 text-xs font-light text-[#886c46] hover:text-stone-900 transition-colors duration-300`}
         >
           Apply Now
@@ -251,6 +252,9 @@ export default function CareersPage() {
   const perksRef = useRef(null);
   const perksInView = useInView(perksRef, { once: true, amount: 0.2 });
 
+  const [applyPanelOpen, setApplyPanelOpen] = useState(false);
+  const [selectedJob, setSelectedJob] = useState<(typeof jobs)[0] | null>(null);
+
   const filtered = useMemo(() => {
     return jobs.filter((job) => {
       const matchesQuery =
@@ -263,6 +267,16 @@ export default function CareersPage() {
       return matchesQuery && matchesDept && matchesType;
     });
   }, [query, activeDept, activeType]);
+
+  const openApplyPanel = (job: (typeof jobs)[0]) => {
+    setSelectedJob(job);
+    setApplyPanelOpen(true);
+  };
+
+  const closeApplyPanel = () => {
+    setApplyPanelOpen(false);
+    setSelectedJob(null);
+  };
 
   return (
     <main className="min-h-screen bg-white pt-12 mt-2">
@@ -362,14 +376,14 @@ export default function CareersPage() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
             <p className={`${merri.className} text-[#886c46] text-[10px] tracking-[0.28em] uppercase font-light mb-1.5`}>
-              Open Positions
+              8 Roles | Modular & Construction Industry
             </p>
             <h2 className={`${playfair.className} text-black text-3xl font-600`}>
-              Find Your Role
+              🏗️ Texo Prefab World is Hiring
             </h2>
           </div>
           <p className={`${merri.className} text-black text-sm font-light`}>
-            {filtered.length} position{filtered.length !== 1 ? 's' : ''} available
+            Minimum 2 years experience in Construction / Modular background preferred.
           </p>
         </div>
 
@@ -470,7 +484,7 @@ export default function CareersPage() {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
             >
               {filtered.map((job, i) => (
-                <JobCard key={job.id} job={job} index={i} />
+                <JobCard key={job.id} job={job} index={i} onApply={openApplyPanel} />
               ))}
             </motion.div>
           ) : (
@@ -499,6 +513,51 @@ export default function CareersPage() {
         </AnimatePresence>
       </section>
 
+      {/* ── APPLY PANEL ───────────────────────────────────────────────────── */}
+      <AnimatePresence>
+        {applyPanelOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 16 }}
+            className="fixed inset-x-4 bottom-6 z-50 rounded-3xl bg-white border border-stone-200 shadow-[0_24px_80px_-24px_rgba(0,0,0,0.25)] md:left-1/2 md:right-auto md:bottom-10 md:-translate-x-1/2"
+            style={{ maxWidth: 520 }}
+          >
+            <div className="flex flex-col gap-4 p-6 md:flex-row md:items-start md:justify-between">
+              <div className="flex-1">
+                <p className={`${merri.className} text-sm text-[#886c46] uppercase tracking-[0.22em] font-light mb-2`}>
+                  Apply Now
+                </p>
+                <h3 className={`${playfair.className} text-black text-lg font-semibold mb-2`}>
+                  📩 To apply,
+                </h3>
+                {selectedJob && (
+                  <p className={`${merri.className} text-sm text-stone-500 leading-relaxed mb-2`}>
+                    Applying for: <span className="font-medium text-black">{selectedJob.title}</span>
+                  </p>
+                )}
+                <p className={`${merri.className} text-sm text-stone-600 leading-relaxed mb-4`}>
+                  send your resume + brief profile summary to:
+                </p>
+                <a
+                  href="mailto:info@texoprefab.com"
+                  className={`${merri.className} inline-flex items-center gap-2 text-sm font-medium text-[#886c46] underline underline-offset-4 hover:text-stone-900`}
+                >
+                  📧 info@texoprefab.com
+                </a>
+              </div>
+              <button
+                onClick={closeApplyPanel}
+                className="rounded-full bg-stone-100 p-2 text-stone-700 hover:bg-stone-200 transition-colors"
+                aria-label="Close apply panel"
+              >
+                <X size={18} />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* ── CTA BANNER ───────────────────────────────────────────────────── */}
       <section className="bg-[#080808] relative overflow-hidden py-20">
         <div
@@ -520,16 +579,16 @@ export default function CareersPage() {
               Send us your resume anyway.
             </h2>
             <p className={`${merri.className} text-white/30 font-light text-sm mt-2 max-w-md leading-relaxed`}>
-              We{`'`}re always looking for exceptional talent. Drop us a line and we{`'`}ll be in touch when the right opportunity opens up.
+              Send your resume + brief profile summary to the email below. Salary is commensurate with skill & experience.
             </p>
           </div>
           <motion.a
-            href="mailto:careers@texoprefab.com"
+            href="mailto:info@texoprefab.com"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className={`${merri.className} flex items-center gap-2 shrink-0 text-sm font-light text-white bg-[#886c46] hover:bg-[#9a7c52] px-7 py-4 rounded-xl transition-colors duration-300 shadow-[0_8px_30px_-4px_rgba(136,108,70,0.4)]`}
           >
-            careers@texoprefab.com
+            info@texoprefab.com
             <ArrowUpRight size={15} />
           </motion.a>
         </div>

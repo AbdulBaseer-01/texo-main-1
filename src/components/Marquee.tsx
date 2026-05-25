@@ -60,7 +60,7 @@ export default function MarqueeBanner() {
           width: 30px;
           height: 30px;
           border-radius: 50%;
-          background: linear-gradient(135deg, rgba(136,108,70,0.75), rgba(180,148,100,0.45));
+          // background: linear-gradient(135deg, rgba(136,108,70,0.75), rgba(180,148,100,0.45));
           border: 1px solid rgba(136, 108, 70, 0.4);
           flex-shrink: 0;
         }
@@ -87,17 +87,18 @@ export default function MarqueeBanner() {
         style={{
           overflow: "hidden",
           position: "relative",
-          background: "linear-gradient(90deg, #0f0d0b 0%, #1a1510 50%, #0f0d0b 100%)",
+          // background: "linear-gradient(90deg, #0f0d0b 0%, #1a1510 50%, #0f0d0b 100%)",
           borderTop: "1px solid rgba(136,108,70,0.2)",
           borderBottom: "1px solid rgba(136,108,70,0.2)",
           padding: "10px 0",
         }}
+        className="bg-black"
       >
         {/* Soft edge fade */}
-        <div style={{
+        {/* <div style={{
           position: "absolute", inset: 0, zIndex: 2, pointerEvents: "none",
           background: "linear-gradient(to right, #0f0d0b 0%, transparent 8%, transparent 92%, #0f0d0b 100%)"
-        }} />
+        }} /> */}
 
         <div className="marquee-track">
           {repeated.map((item, i) => (
