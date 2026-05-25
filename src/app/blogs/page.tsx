@@ -18,43 +18,81 @@ const playfair = Playfair_Display({
 const blogs = [
   {
     id: 1,
-    title: 'The Future of Prefabrication: Speed Meets Sustainability',
-    excerpt: 'Discover how modular construction is revolutionizing the building industry with faster timelines and eco-friendly practices.',
+    title: 'Prefabricated Cabin Manufacturers in Hyderabad: What to Look For Before Choosing One',
+    excerpt: 'Hyderabad’s rapid growth has increased demand for prefab cabins across sites, offices, and utility spaces. Learn the key criteria for quality, delivery, and long-term value before you choose a supplier.',
     category: 'Industry Trends',
     author: 'Faiz Ahmed',
-    date: 'March 1, 2024',
+    date: 'March 1, 2026',
     readTime: '5 min read',
     image: '/products-hero.png',
+    summary: 'A reliable manufacturer should combine experience, durable materials, fast delivery, and strong after-sales support so your cabin performs well in Hyderabad’s climate and operations.',
   },
   {
     id: 2,
-    title: 'Case Study: Delivering a 1000 sq ft Facility in 72 Hours',
-    excerpt: 'Learn how precision engineering and logistics coordination made an impossible deadline possible for our Hyderabad client.',
+    title: 'Why Texo Prefab Is Among the Top Prefab Homes Manufacturers in Hyderabad',
+    excerpt: 'Discover how Texo Prefab stands out with factory-controlled quality, modernization, and end-to-end service for faster, smarter home delivery.',
     category: 'Case Study',
     author: 'Mohammad Zaheer Uddin',
     date: 'February 28, 2024',
     readTime: '8 min read',
     image: '/siteoffice-2.webp',
+    summary: 'From modular production to bespoke finishes, Texo Prefab offers predictable costs and modern designs that meet Hyderabad buyers’ expectations.',
   },
   {
     id: 3,
-    title: 'Quality Over Everything: Our Manufacturing Standards',
-    excerpt: 'A deep dive into the checks, balances, and innovations that ensure every Texo module exceeds industry standards.',
+    title: 'Portable Office Cabins in Hyderabad: The Fastest Solution for Growing Businesses',
+    excerpt: 'Portable offices are changing how Hyderabad businesses set up workspaces, offering quick installation, strong durability, and flexible interiors.',
     category: 'Quality',
     author: 'Faiz Ahmed',
     date: 'February 25, 2024',
     readTime: '6 min read',
     image: '/products-hero.png',
+    summary: 'Designed for modern operations, portable office cabins deliver clean, customizable spaces that are ready to use in days rather than months.',
   },
   {
     id: 4,
-    title: 'Why Prefab is the Answer to India\'s Housing Crisis',
-    excerpt: 'Exploring how modular construction can scale affordability, speed, and quality across the nation\'s growing urban centers.',
+    title: 'Why Portable Container Houses in Hyderabad Are the Smart Choice for Modern Living',
+    excerpt: 'Container homes now offer stylish, low-cost living with quick assembly and premium interiors for a practical Hyderabad lifestyle.',
     category: 'Innovation',
     author: 'Mohammad Zaheer Uddin',
     date: 'February 20, 2024',
     readTime: '7 min read',
     image: '/siteoffice-2.webp',
+    summary: 'Modern portable container houses combine factory-built efficiency with smart design, making them a strong option for fast, sustainable residential living.',
+  },
+  {
+    id: 5,
+    title: 'How Modular Prefabricated Homes in Hyderabad Reduce Construction Time and Cost',
+    excerpt: 'Modular homes shrink timelines and expenses by shifting production off-site, cutting waste, and keeping pricing transparent for Hyderabad projects.',
+    category: 'Innovation',
+    author: 'Mohammad Zaheer Uddin',
+    date: 'February 20, 2024',
+    readTime: '7 min read',
+    image: '/siteoffice-2.webp',
+    summary: 'Modular prefabricated homes use factory workflows to deliver faster, more reliable build schedules while lowering labor and material costs.',
+    highlightTitle: 'Key modular advantages',
+    highlights: [
+      'Up to 50% faster completion with parallel on-site and factory workflows',
+      'Reduced labor dependency and material wastage',
+      'Improved quality control with factory-built precision',
+    ],
+  },
+  {
+    id: 6,
+    title: 'Why Prefabricated Houses in Hyderabad Are Becoming the Preferred Choice for Modern Living',
+    excerpt: 'Prefab houses are rising in Hyderabad because they deliver fast timelines, sustainability, flexible design, and low-maintenance performance.',
+    category: 'Innovation',
+    author: 'Mohammad Zaheer Uddin',
+    date: 'February 20, 2024',
+    readTime: '7 min read',
+    image: '/siteoffice-2.webp',
+    summary: 'Prefabricated homes are now mainstream for modern living in Hyderabad, offering energy-efficient finishes, strong durability, and adaptable applications.',
+    highlightTitle: 'Popular prefab benefits',
+    highlights: [
+      'Rapid 30–90 day delivery with controlled factory fabrication',
+      'Low maintenance and climate-ready insulation',
+      'Suitable for homes, farmhouses, studios, clinics, and guest cabins',
+    ],
   },
 ]
 
@@ -116,9 +154,31 @@ export default function BlogsPage() {
                     </h3>
 
                     {/* Excerpt */}
-                    <p className={`${merri.className} text-black/60 font-light text-base leading-relaxed mb-5 line-clamp-2`}>
+                    <p className={`${merri.className} text-black/60 font-light text-base leading-relaxed mb-4 line-clamp-2`}>
                       {blog.excerpt}
                     </p>
+
+                    {blog.summary ? (
+                      <p className={`${merri.className} text-black/70 font-light text-sm leading-relaxed mb-4 line-clamp-2`}>
+                        {blog.summary}
+                      </p>
+                    ) : null}
+
+                    {blog.highlightTitle ? (
+                      <div className="mb-5 rounded-3xl bg-[#f7f3ee] p-4 border border-[#886c46]/10">
+                        <h4 className={`${merri.className} text-sm font-semibold uppercase tracking-[0.18em] text-[#886c46] mb-3`}>
+                          {blog.highlightTitle}
+                        </h4>
+                        <ul className="space-y-2 text-black/70 text-sm">
+                          {blog.highlights?.map((item, idx) => (
+                            <li key={idx} className="flex gap-3">
+                              <span className="mt-[0.35rem] h-2.5 w-2.5 rounded-full bg-[#886c46] block" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : null}
 
                     {/* Meta info */}
                     <div className="flex flex-wrap items-center gap-4 text-[0.85rem] text-black/50 mb-6 pb-6 border-b border-black/8">
