@@ -132,7 +132,7 @@ const WhyChooseUs = () => {
           className="mb-28 grid gap-6 md:grid-cols-4 auto-rows-[200px]"
         >
           <div className="relative md:col-span-2 md:row-span-2 rounded-3xl overflow-hidden group">
-            <Image src="/siteoffice-2.webp" alt="Prefab modular construction facility" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+            <Image src="/office/texo-1.jpg" alt="Prefab modular construction facility" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
             <div className="absolute inset-0 bg-[#886c46]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="absolute bottom-8 left-8 right-8 text-white">

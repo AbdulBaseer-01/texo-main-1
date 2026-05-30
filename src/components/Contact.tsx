@@ -92,14 +92,14 @@ export default function Contact() {
       {/* ── Background image with overlay ── */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/products-hero.png"
+          src="/office/texo-6.jpg"
           alt=""
           fill
           priority
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/80" />
       </div>
 
       {/* ── Ambient blobs ── */}

@@ -24,7 +24,7 @@ const blogs = [
     author: 'Faiz Ahmed',
     date: 'March 1, 2026',
     readTime: '5 min read',
-    image: '/products-hero.png',
+    image: '/products/prefab/house/main.webp',
     summary: 'A reliable manufacturer should combine experience, durable materials, fast delivery, and strong after-sales support so your cabin performs well in Hyderabad’s climate and operations.',
   },
   {
@@ -35,7 +35,7 @@ const blogs = [
     author: 'Mohammad Zaheer Uddin',
     date: 'February 28, 2024',
     readTime: '8 min read',
-    image: '/siteoffice-2.webp',
+    image: '/products/prefab/structures/main.webp',
     summary: 'From modular production to bespoke finishes, Texo Prefab offers predictable costs and modern designs that meet Hyderabad buyers’ expectations.',
   },
   {
@@ -46,7 +46,7 @@ const blogs = [
     author: 'Faiz Ahmed',
     date: 'February 25, 2024',
     readTime: '6 min read',
-    image: '/products-hero.png',
+    image: '/products/portable/office/main.webp',
     summary: 'Designed for modern operations, portable office cabins deliver clean, customizable spaces that are ready to use in days rather than months.',
   },
   {
@@ -57,7 +57,7 @@ const blogs = [
     author: 'Mohammad Zaheer Uddin',
     date: 'February 20, 2024',
     readTime: '7 min read',
-    image: '/siteoffice-2.webp',
+    image: '/products/portable/container/main.webp',
     summary: 'Modern portable container houses combine factory-built efficiency with smart design, making them a strong option for fast, sustainable residential living.',
   },
   {
@@ -68,7 +68,7 @@ const blogs = [
     author: 'Mohammad Zaheer Uddin',
     date: 'February 20, 2024',
     readTime: '7 min read',
-    image: '/siteoffice-2.webp',
+    image: '/products/prefab/house/prefab-homes.png',
     summary: 'Modular prefabricated homes use factory workflows to deliver faster, more reliable build schedules while lowering labor and material costs.',
     highlightTitle: 'Key modular advantages',
     highlights: [
@@ -85,7 +85,7 @@ const blogs = [
     author: 'Mohammad Zaheer Uddin',
     date: 'February 20, 2024',
     readTime: '7 min read',
-    image: '/siteoffice-2.webp',
+    image: '/products/portable/farmhouse/farmhouse-white-ai.png',
     summary: 'Prefabricated homes are now mainstream for modern living in Hyderabad, offering energy-efficient finishes, strong durability, and adaptable applications.',
     highlightTitle: 'Popular prefab benefits',
     highlights: [
