@@ -50,12 +50,11 @@ export default function Vision() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-32 bg-linear-to-b from-white via-[#faf8f4] to-white overflow-hidden"
+      className="relative py-32 bg-white overflow-hidden"
     >
       
 
-      {/* Ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-100 rounded-full bg-[#886c46]/6 blur-[120px] pointer-events-none" />
+      
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -82,12 +81,12 @@ export default function Vision() {
           </h2>
         </motion.div>
 
-        <div className="relative h-px max-w-2xl mx-auto mb-20 bg-[#886c46]/10 overflow-hidden">
+        {/* <div className="relative h-px max-w-2xl mx-auto mb-20 bg-[#886c46]/10 overflow-hidden">
           <motion.div
             style={{ width: lineWidth }}
             className="absolute inset-y-0 left-0 bg-linear-to-r from-transparent via-[#886c46]/60 to-transparent"
           />
-        </div>
+        </div> */}
 
         {/* ── Pillar Cards ────────────────────────────────────────── */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -152,7 +151,7 @@ export default function Vision() {
         </div>
 
         {/* ── Bottom quote strip ──────────────────────────────────── */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
@@ -173,7 +172,7 @@ export default function Vision() {
               </div>
             )
           )}
-        </motion.div>
+        </motion.div> */}
 
       </div>
     </section>

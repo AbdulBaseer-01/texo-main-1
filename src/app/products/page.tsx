@@ -59,7 +59,7 @@ const productsData: Record<string, CategoryData> = {
       { name: 'A-Frame Cabin',  image: '/products/woodenseries/aframe/a-frame-hero-img.png' },
       { name: 'Arc Pod',        image: '/products/woodenseries/arcpod/arc-pod-main.jpg' },
       { name: 'Wooden House',   image: '/products/woodenseries/wooden/wooden-house-main.jpg' },
-      { name: 'Smart House',    image: '/products/woodenseries/smart/smart-house-main.jpg' },
+      { name: 'Smart House',    image: '/products/woodenseries/smart/main.png' },
     ]
   },
   'Portable Solutions': {
@@ -74,7 +74,7 @@ const productsData: Record<string, CategoryData> = {
       { name: 'Containers House',      image: '/products/portable/container/main.webp' },
       { name: 'Modular Toilet',        image: '/products/portable/modular-toilet/modular-toilet.png' },
       { name: 'Mobile Toilet',         image: '/products/portable/mobile-toilet/mobile-main.webp' },
-      { name: 'Portable Toilet Cabin', image: '/products/portable/portable-toilet/portable-toilet-main.jpg' },
+      { name: 'Portable Toilet Cabin', image: '/products/portable/portable-toilet/pt-2.jpg' },
     ]
   },
   'Prefab Solutions': {
@@ -106,8 +106,8 @@ const productsData: Record<string, CategoryData> = {
     longDescription: 'Security infrastructure demands reliability above all else. Our Security Solutions series delivers robust, tamper-resistant structures designed for round-the-clock operation in exposed environments. From manned guard posts at facility perimeters to revenue-collecting toll booths and weather-protected ATM enclosures, every unit is built with reinforced panels, secure access points, and climate control options to keep personnel and equipment safe.',
     products: [
       { name: 'Security Cabins', image: '/products/security/security-cabin/security-cabin-ai.png' },
-      { name: 'Toll Booth',      image: '/products/security/toll-booth/toll-booth-main.jpg' },
-      { name: 'ATM Cabin',       image: '/products/security/atm/atm-main.jpg' },
+      { name: 'Toll Booth',      image: '/products/security/toll-booth/toll.png' },
+      { name: 'ATM Cabin',       image: '/products/security/atm/atm.png' },
     ]
   },
   'PUF Insulated Cabin': {
@@ -402,24 +402,17 @@ const CategoryPageCard = ({
       className="group relative overflow-hidden rounded-2xl border border-black/10 hover:border-[#886c46]/50 transition-all duration-500 bg-white"
     >
       {/* Image */}
-      <div className="relative h-52 overflow-hidden bg-linear-to-br from-[#886c46]/10 to-transparent">
+      <div className="relative h-52 overflow-hidden">
         <motion.div
           animate={{ scale: hovered ? 1.08 : 1 }}
           transition={{ duration: 0.6 }}
           className="h-full w-full"
         >
-          <Image src={product.image} alt={product.name} fill className="object-cover opacity-80" />
+          <Image src={product.image} alt={product.name} fill className="object-cover" />
         </motion.div>
-        <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent" />
-
-        <motion.div
-          animate={{ opacity: hovered ? 1 : 0 }}
-          transition={{ duration: 0.3 }}
-          className="absolute inset-0 bg-linear-to-br from-[#886c46]/20 to-transparent"
-        />
 
         <div className="absolute top-4 left-4">
-          <span className={`${merri.className} text-[10px] uppercase tracking-[0.2em] px-3 py-1.5 bg-black/60 backdrop-blur-md text-[#886c46] rounded-full border border-[#886c46]/30 font-light`}>
+          <span className={`${merri.className} text-[10px] uppercase tracking-[0.2em] px-3 py-1.5 bg-white/90 text-[#886c46] rounded-full border border-[#886c46]/30 font-light`}>
             {category}
           </span>
         </div>
@@ -521,12 +514,12 @@ const Products = () => {
           <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px]" />
         </div>
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          {/* <motion.div
             initial={{ scaleX: 0 }}
             animate={isHeroInView ? { scaleX: 1 } : { scaleX: 0 }}
             transition={{ duration: 1.2, ease: 'easeInOut' }}
             className="absolute top-32 left-0 right-0 h-px bg-linear-to-r from-transparent via-[#886c46] to-transparent"
-          />
+          /> */}
           <div className="relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -586,12 +579,12 @@ const Products = () => {
           </div>
         </div>
 
-        <motion.div
+        {/* <motion.div
           initial={{ scaleX: 0 }}
           animate={isHeroInView ? { scaleX: 1 } : { scaleX: 0 }}
           transition={{ duration: 1.2, delay: 0.8, ease: 'easeInOut' }}
           className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[#886c46] to-transparent"
-        />
+        /> */}
       </section>
 
       {/* Filter bar */}
@@ -783,18 +776,16 @@ const ProductCard = ({ product, category, index, isInView, categoryIndex }: Prod
         onMouseLeave={() => setIsHovered(false)}
         className="group relative cursor-pointer"
       >
-        <div className="relative h-full overflow-hidden rounded-2xl bg-linear-to-br from-black/5 to-black/2 border border-black/10 hover:border-[#886c46]/50 transition-all duration-500 backdrop-blur-sm">
-          <div className="relative h-56 overflow-hidden bg-linear-to-br from-[#886c46]/10 to-transparent">
+        <div className="relative h-full overflow-hidden rounded-2xl bg-white border border-black/10 hover:border-[#886c46]/50 transition-all duration-500 shadow-sm">
+          <div className="relative h-56 overflow-hidden">
             <motion.div animate={{ scale: isHovered ? 1.1 : 1 }} transition={{ duration: 0.6 }} className="h-full w-full">
-              <Image src={product.image} alt={product.name} fill className="object-cover opacity-75" />
+              <Image src={product.image} alt={product.name} fill className="object-cover" />
             </motion.div>
-            <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent" />
-            <motion.div animate={{ opacity: isHovered ? 1 : 0 }} transition={{ duration: 0.3 }} className="absolute inset-0 bg-linear-to-br from-[#886c46]/20 to-transparent" />
             <div className="absolute top-4 left-4">
-              <span className={`${merri.className} text-[10px] uppercase tracking-[0.2em] px-3 py-1.5 bg-black/60 backdrop-blur-md text-[#886c46] rounded-full border border-[#886c46]/30 font-light`}>{category}</span>
+              <span className={`${merri.className} text-[10px] uppercase tracking-[0.2em] px-3 py-1.5 bg-white/90 text-[#886c46] rounded-full border border-[#886c46]/30 font-light`}>{category}</span>
             </div>
-            <div className="absolute bottom-4 right-4">
-              <span className={`${playfair.className} text-5xl font-bold text-white/20 group-hover:text-white/30 transition-colors`}>{String(index + 1).padStart(2, '0')}</span>
+             <div className="absolute bottom-4 right-4">
+              <span className={`${playfair.className} text-5xl font-bold text-black/10 group-hover:text-black/20 transition-colors`}>{String(index + 1).padStart(2, '0')}</span>
             </div>
           </div>
           <div className="p-6 bg-white">

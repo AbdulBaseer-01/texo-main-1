@@ -294,7 +294,9 @@ export const productsData: Record<string, ProductData> = {
         Our Arc Pods are crafted using advanced CNC technology combined with traditional woodworking skills, ensuring precision and quality in every curve and joint.
       `,
       gallery: [
-        '/products/woodenseries/arcpod/arc-pod-main.jpg'
+        '/products/woodenseries/arcpod/arc-pod-main.jpg',
+        '/products/woodenseries/arcpod/arc-2.jpg',
+        '/products/woodenseries/arcpod/arc-int.jpg'
       ],
       advantages: [
         {
@@ -538,7 +540,8 @@ export const productsData: Record<string, ProductData> = {
       Whether you're building your dream home or creating a family retreat, our Wooden Houses offer the perfect blend of tradition and modernity.
     `,
     gallery: [
-      '/products/woodenseries/wooden/wooden-house-main.jpg'
+      '/products/woodenseries/wooden/wooden-house-main.jpg',
+      '/products/woodenseries/wooden/wooden-2.png'
     ],
     advantages: [
   {
@@ -781,7 +784,7 @@ Every aspect of the Smart House is designed for modern living, from automated cl
 
 Our Smart Houses are built with scalability in mind, allowing you to start with basic automation and expand as technology advances.`,
     gallery: [
-      '/products/woodenseries/wooden/wooden-house-main.jpg',
+      '/products/woodenseries/smart/main.png',
       '/products/woodenseries/aframe/a-frame-hero.png'
     ],
   advantages: [
@@ -1026,7 +1029,10 @@ Each Porta Cabin is constructed using high-quality materials and modular design 
 
 Our Porta Cabins are engineered to withstand transportation and various environmental conditions, providing reliable shelter wherever it's needed.`,
     gallery: [
-      '/products/portable/porta-cabin/main.webp'
+      '/products/portable/porta-cabin/main.webp',
+      '/products/portable/porta-cabin/porta-2.jpeg',
+      '/products/portable/porta-cabin/porta.jpeg',
+      '/products/portable/porta-cabin/porta-3.jpg',
     ],
   advantages: [
   {
@@ -1270,7 +1276,6 @@ The design incorporates practical features like easy maintenance access, durable
 Each Farmhouse is built to last, with reinforced structures that can withstand the demands of rural environments while providing a cozy retreat from daily farm work.`,
     gallery: [
       '/products/portable/farmhouse/farmhouse-white-ai.png',
-      '/products/portable/farmhouse/farmhouse-night.jpg',
       '/products/portable/farmhouse/farmhouse-night-1.jpg',
       '/products/portable/farmhouse/farmhouse-2.jpg',
       '/products/portable/farmhouse/farmhouse-1.JPG'
@@ -1516,7 +1521,10 @@ Constructed with modular components, Portable Cabins can be quickly assembled an
 
 Our Portable Cabins are built to industry standards, providing safe and comfortable environments for workers and staff in demanding conditions.`,
     gallery: [
-      '/products/portable/office/main.webp'
+      '/products/portable/office/main.webp',
+      '/products/portable/office/porta-office.jpg',
+      '/products/portable/office/office-int-3.jpg',
+      '/products/portable/office/office-int-ai.jpg',
     ],
   advantages: [
   {
@@ -1758,7 +1766,12 @@ variants: [
 The design maximizes space utilization with bunk bed configurations and shared facilities, while maintaining comfort and privacy standards. Each cabin includes proper ventilation, lighting, and safety features to ensure a healthy living environment.
 
 Our Bunk House Cabins are engineered for durability and can be equipped with additional amenities like communal kitchens and recreational areas.`,
-    gallery: ['/products-hero.png', '/siteoffice-2.webp', '/products-hero.png', '/siteoffice-2.webp',],
+    gallery: [
+      '/products/portable/bunkhouse/main.webp',
+      '/products/portable/bunkhouse/bunk-int.jpg',
+      '/products/portable/bunkhouse/bunk-int-1.jpg',
+      '/products/portable/bunkhouse/bunk-int-3.jpg',
+    ],
   advantages: [
   {
     icon: 'Rocket',
@@ -1999,7 +2012,12 @@ variants: [
 Each Container House is customized to provide comfortable living spaces while maintaining the industrial aesthetic of the original containers. The modular nature allows for creative configurations, from single containers to multi-unit complexes.
 
 Our Container Houses combine the strength and durability of shipping containers with modern interior design, creating distinctive homes that stand out.`,
-    gallery: ['/products-hero.png', '/siteoffice-2.webp', '/products-hero.png', '/siteoffice-2.webp',],
+    gallery: [
+      '/products/portable/container/main.webp',
+      '/products/portable/container/cont-1.jpg',
+      '/products/portable/container/cont-2.jpg',
+      '/products/portable/container/cont-3.jpg',
+    ],
   advantages: [
   {
     icon: 'Blocks',
@@ -2240,7 +2258,12 @@ variants: [
 Each unit is equipped with flushing toilets, sinks, and proper ventilation systems, ensuring comfort and hygiene standards are maintained. The modular design allows for easy transportation and quick setup, making them ideal for temporary or mobile requirements.
 
 Our Modular Toilets are built to withstand heavy use and can be equipped with additional features like solar power and water recycling systems.`,
-    gallery: ['/products-hero.png', '/siteoffice-2.webp', '/products-hero.png', '/siteoffice-2.webp',],
+    gallery: [
+      '/products/portable/modular-toilet/modular-toilet.png',
+      '/products/portable/modular-toilet/modular-toilet-2.jpg',
+      '/products/portable/modular-toilet/modular-int.jpg',
+      '/products/portable/modular-toilet/modular-ai-int.jpg',
+    ],
   advantages: [
   {
     icon: 'Sparkles',
@@ -2481,7 +2504,11 @@ variants: [
 Each Mobile Toilet is mounted on wheels and can be towed to different locations, making them perfect for construction sites, events, and emergency situations. Despite their mobility, they maintain high standards of comfort and hygiene.
 
 Our Mobile Toilets are equipped with stabilizing systems for safe operation and can be quickly connected to utilities at each location.`,
-    gallery: ['/products-hero.png', '/siteoffice-2.webp', '/products-hero.png', '/siteoffice-2.webp',],
+    gallery: [
+      '/products/portable/mobile-toilet/mobile-main.webp',
+      '/products/portable/mobile-toilet/mobile-2.png',
+      '/products/portable/mobile-toilet/mobile-3.png',
+    ],
   advantages: [
   {
     icon: 'Truck',
@@ -2722,7 +2749,10 @@ variants: [
 Each cabin includes multiple toilet compartments, handwashing stations, and proper ventilation, creating comfortable and hygienic environments. The portable design allows for easy transportation and setup in remote or temporary locations.
 
 Our Portable Toilet Cabins are built for durability and can handle high-traffic situations while maintaining cleanliness and functionality.`,
-    gallery: ['/products-hero.png', '/siteoffice-2.webp', '/products-hero.png', '/siteoffice-2.webp',],
+    gallery: [
+      '/products/portable/portable-toilet/pt-1.jpg',
+      '/products/portable/portable-toilet/pt-2.jpg',
+    ],
   advantages: [
   {
     icon: 'ShieldPlus',
