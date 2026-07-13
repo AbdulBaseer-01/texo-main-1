@@ -74,7 +74,7 @@ export default function TechSpecs({ product }: TechSpecsProps) {
   const isInView   = useInView(sectionRef, { once: true, margin: '-80px' })
 
   const techSpecs  = product.techSpecs
-  const section    = techSpecs[activeTab]
+  const section    = techSpecs![activeTab]
   const images     = section.images
   const specs      = section.specs
 
