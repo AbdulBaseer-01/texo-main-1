@@ -69,7 +69,7 @@ const productsData: Record<string, CategoryData> = {
     products: [
       { name: 'Porta Cabin',           image: '/products/portable/porta-cabin/main.webp' },
       { name: 'Farmhouse',             image: '/products/portable/farmhouse/farmhouse-night-1.jpg' },
-      { name: 'Portable Cabin',        image: '/products/portable/office/main.webp' },
+      { name: 'Portable Office',        image: '/products/portable/office/main.webp' },
       { name: 'Bunk House Cabin',      image: '/products/portable/bunkhouse/main.webp' },
       { name: 'Containers House',      image: '/products/portable/container/main.webp' },
       { name: 'Modular Toilet',        image: '/products/portable/modular-toilet/modular-toilet.png' },
@@ -86,6 +86,7 @@ const productsData: Record<string, CategoryData> = {
       { name: 'Prefab Structures',            image: '/products/prefab/structures/main.webp' },
       { name: 'Prefabricated Accommodation',  image: '/products/prefab/accomodation/main.webp' },
       { name: 'Prefab House',                 image: '/products/prefab/house/main.webp' },
+      { name: 'Prefab Cottages',                 image: '/products/prefab/cottage/images/image1.png' },
       { name: 'Prefab Schools',               image: '/products/prefab/school/main.webp' },
     ]
   },

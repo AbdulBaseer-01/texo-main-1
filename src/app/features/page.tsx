@@ -281,7 +281,7 @@ const Features = () => {
       <KeyFeatures />
       <PlugnPlay />
       <Advantages />
-      <Container
+      {/* <Container
   mainImage="/container/container-full-1.png"
   mainHeading="Crafted to Perfection"
   mainSubtitle="Explore our curated collection of premium products"
@@ -323,7 +323,7 @@ const Features = () => {
       ],
     },
   ]}
-/>
+/> */}
 
       {/* ── TRUST STRIP ───────────────────────────────────────────────────────── */}
       <section className="bg-[#0d0b08] py-14 px-6 md:px-12 border-t border-[#886c46]/15">
@@ -488,11 +488,11 @@ const Features = () => {
           </motion.div>
         </div>
       </section>
-      <AddOns
+      {/* <AddOns
         heroImage="/addons/farm-house-2.png"
         externalItems={externalItems}
         internalItems={internalItems}
-      />
+      /> */}
 
     </div>
   )

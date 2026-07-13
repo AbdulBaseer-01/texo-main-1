@@ -24,7 +24,7 @@ const productCategories = [
   {
     label: 'Prefab Solutions',
     icon: Factory,
-    items: ['Prefab Site Offices', 'Prefab Structures', 'Prefabricated Accommodation', 'Prefab House', 'Prefab Schools'],
+    items: ['Prefab Site Offices', 'Prefab Structures', 'Prefabricated Accommodation', 'Prefab House', 'Prefab Cottages', 'Prefab Schools'],
   },
   {
     label: 'Specialized Structures',

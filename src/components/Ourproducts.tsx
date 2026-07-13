@@ -1,3 +1,373 @@
+// 'use client'
+// import React, { useRef, useState } from 'react'
+// import { motion, useInView } from 'framer-motion'
+// import { Merriweather, Playfair_Display } from 'next/font/google'
+// import Image from 'next/image'
+
+// const merri = Merriweather({
+//   subsets: ['latin'],
+//   weight: ['300', '400', '700', '900'],
+// })
+
+// const playfair = Playfair_Display({
+//   subsets: ['latin'],
+//   weight: ['400', '500', '600', '700', '800', '900'],
+// })
+
+// const OurProducts = () => {
+//   const products = [
+//   {
+//     id: 1,
+//     category: 'Residential',
+//     title: 'Wooden Series',
+//     description:
+//       'Discover our signature luxury line, including the Arc Pod, A-Frame Cabin, Smart House, and other modular wooden structures. Designed to blend elegance, comfort, and sustainability.',
+//     image: '/products/woodenseries/wooden/wooden-house-main.jpg',
+//     features: ['Quick Installation', 'Energy Efficient', 'Customizable Design'],
+//     link: '/products/modular-homes'
+//   },
+//   {
+//     id: 2,
+//     category: 'Residential',
+//     title: 'Prefab Solutions',
+//     description:
+//       'Whether it’s a farmhouse, site office, or full-scale prefab house, our modular builds deliver speed, flexibility, and premium design.',
+//     image: '/products/prefab/house/prefab-homes.png',
+//     features: ['Durable Structure', 'Flexible Layouts', 'Low Maintenance'],
+//     link: '/products/luxury-villas'
+//   },
+//   {
+//     id: 3,
+//     category: 'Commercial',
+//     title: 'Portable Solutions',
+//     description:
+//       'Explore porta cabins, container houses, bunkhouses, mobile toilets, modular restrooms, and compact office setups, built for convenience and quick deployment.',
+//     image: '/products/portable/office/main.webp',
+//     features: ['Compact Design', 'Quick Deployment', 'Weather Resistant'],
+//     link: '/products/office-spaces'
+//   },
+//   {
+//     id: 4,
+//     category: 'Commercial',
+//     title: 'Specialized Structures',
+//     description:
+//       'Smartly designed prefab schools, clinics, restaurants, factory cabins, electrical rooms, smoking zones, and more, all tailored to perform and built to scale.',
+//     image: '/products/special/restaurant/main.webp',
+//     features: ['Scalable Solutions', 'Custom Configurations', 'High Durability'],
+//     link: '/products/retail-stores'
+//   },
+//   {
+//     id: 5,
+//     category: 'Industrial',
+//     title: 'PUF Insulated Cabins',
+//     description:
+//       'From solar control rooms to clean rooms and health centers, our PUF cabins ensure thermal protection, energy efficiency, and structural reliability.',
+//     image: '/products/puf/control/main.webp',
+//     features: ['Thermal Insulation', 'Energy Efficient', 'Robust Construction'],
+//     link: '/products/warehouses'
+//   },
+//   {
+//     id: 6,
+//     category: 'Industrial',
+//     title: 'Security Solutions',
+//     description:
+//       'Secure and compact modular units designed for monitoring, guarding, and controlled access environments. Built with reinforced materials for dependable protection.',
+//     image: '/products/security/security-cabin/security-cabin-ai.png',
+//     features: ['Strong Build', 'Weather Resistant', 'Easy Installation'],
+//     link: '/products/factory-units'
+//   }
+// ]
+
+
+//   return (
+//     <motion.section
+//   className="relative min-h-screen py-24 overflow-hidden"
+// >
+      
+//       <div className="absolute inset-0 opacity-40">
+//         <div className="absolute top-40 -left-20 w-96 h-96 bg-[#886c46]/20 rounded-full blur-[100px]" />
+//         <div className="absolute bottom-20 -right-20 w-96 h-96 bg-[#6f5838]/20 rounded-full blur-[100px]" />
+//       </div>
+
+//       <div className="absolute inset-0 opacity-[0.02]"
+//         style={{
+//           backgroundImage: `radial-gradient(circle, #886c46 1px, transparent 1px)`,
+//           backgroundSize: '30px 30px'
+//         }}
+//       />
+
+//       <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-12">
+        
+//         {/* Section Header */}
+//         <motion.div
+//           initial={{ opacity: 0, y: 50 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           viewport={{ once: false }}
+//           transition={{ duration: 0.8 }}
+//           className="mb-20 text-center"
+//         >
+//           <motion.div
+//                       initial={{ opacity: 0, scale: 0.8 }}
+//                       whileInView={{ opacity: 1, scale: 1 }}
+//                       viewport={{ once: false }}
+//                       transition={{ duration: 0.6 }}
+//                       className="mb-6 inline-block"
+//                     >
+//                       <span className="inline-flex items-center gap-2 rounded-full border border-[#886c46]/60 bg-[#886c46] px-5 py-2 text-xs font-light tracking-widest text-[#f8f5f0] backdrop-blur-sm shadow-2xl">
+//                         <span className="relative flex h-2 w-2">
+//                           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#f8f5f0] opacity-75"></span>
+//                           <span className="relative inline-flex h-2 w-2 rounded-full bg-[#f8f5f0]"></span>
+//                         </span>
+//                         OUR PRODUCTS
+//                       </span>
+//             </motion.div>
+//           <motion.h2
+//                       initial={{ opacity: 0, y: 30 }}
+//                       whileInView={{ opacity: 1, y: 0 }}
+//                       viewport={{ once: false }}
+//                       transition={{ duration: 0.8, delay: 0.2 }}
+//                       className={`${playfair.className} mb-6 text-4xl font-light leading-tight text-transparent bg-linear-to-r from-black via-[#886c46] to-black bg-clip-text md:text-5xl lg:text-6xl`}
+//                     >
+//                       Prefabricated Solutions
+//                       <br />
+                      
+//                         For Every Need
+                      
+//             </motion.h2>
+
+//           <motion.p
+//             initial={{ opacity: 0, y: 30 }}
+//             whileInView={{ opacity: 1, y: 0 }}
+//             viewport={{ once: false }}
+//             transition={{ duration: 0.8, delay: 0.4 }}
+//             className={`${merri.className} mx-auto max-w-2xl text-base font-light leading-relaxed text-white/70`}
+//           >
+//             From residential homes to industrial facilities, our comprehensive range of modular buildings 
+//             combines innovative design with practical functionality.
+//           </motion.p>
+
+//           <motion.div
+//             initial={{ width: 0 }}
+//             whileInView={{ width: '100px' }}
+//             viewport={{ once: false }}
+//             transition={{ duration: 1, delay: 0.6 }}
+//             className="mx-auto mt-8 h-px bg-linear-to-r from-transparent via-[#886c46] to-transparent"
+//           />
+//         </motion.div>
+
+//         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+//           {products.map((product, index) => (
+//             <ProductCard key={product.id} product={product} index={index} />
+//           ))}
+//         </div>
+
+//         <div className="w-full flex flex-col justify-center items-center mt-12 gap-4 text-center">
+  
+//   <p className="max-w-2xl text-sm md:text-base text-white/70 leading-relaxed">
+//     Explore our complete portfolio of prefab construction systems, modular buildings, and turnkey infrastructure solutions built for modern residential, commercial, and industrial projects.
+//   </p>
+
+//   <button className="bg-white hover:bg-white transition-all duration-300 px-8 py-3 rounded-full text-black border-white border tracking-wide shadow-lg hover:shadow-xl">
+//     View All Products
+//   </button>
+
+// </div>
+
+//       </div>
+//     </motion.section>
+//   )
+// }
+
+// const ProductCard = ({ product, index }: { product: any; index: number }) => {
+//   const cardRef = useRef(null)
+//   const [isHovered, setIsHovered] = useState(false)
+//   const isInView = useInView(cardRef, { once: true, margin: '-100px' })
+
+//   return (
+//     <motion.article
+//       ref={cardRef}
+//       initial={{ opacity: 0, y: 60, rotateX: 15 }}
+//       animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : { opacity: 0, y: 60, rotateX: 15 }}
+//       transition={{ 
+//         duration: 0.8, 
+//         delay: index * 0.15,
+//         ease: [0.25, 0.46, 0.45, 0.94]
+//       }}
+//       onHoverStart={() => setIsHovered(true)}
+//       onHoverEnd={() => setIsHovered(false)}
+//       className="group relative perspective-1000 h-full "
+//     >
+//       <div className="relative h-full overflow-hidden rounded-3xl bg-linear-to-br from-white via-[#faf8f5] to-white  transition-all duration-700 hover:shadow-[0_20px_60px_rgba(136,108,70,0.15)]">
+        
+//         {/* Decorative Accent */}
+//         <div className="absolute right-0 top-0 h-32 w-32 bg-linear-to-br from-[#886c46]/10 to-transparent blur-2xl" />
+        
+//         {/* Image Section */}
+//         <div className="relative h-64 overflow-hidden">
+//           <motion.div
+//             animate={{ scale: isHovered ? 1.1 : 1 }}
+//             transition={{ duration: 0.6, ease: 'easeOut' }}
+//             className="h-full w-full"
+//           >
+//             <Image
+//               src={product.image}
+//               alt={product.title}
+//               fill
+//               className="object-cover"
+//             />
+//           </motion.div>
+
+//           <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
+//           <div className="absolute inset-0 bg-linear-to-br from-[#886c46]/20 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+//           {/* Category Badge */}
+//           <motion.div
+//             initial={{ y: -10, opacity: 0 }}
+//             animate={isInView ? { y: 0, opacity: 1 } : { y: -10, opacity: 0 }}
+//             transition={{ delay: index * 0.15 + 0.3 }}
+//             className="absolute left-6 top-6"
+//           >
+//             <div className="relative">
+//               <div className="absolute inset-0 bg-white/12 blur-md" />
+//               <span className={`${merri.className} relative block rounded-2xl border border-white/40 bg-white/90 px-4 py-2 text-[10px] font-light uppercase tracking-[0.2em] text-[#886c46] shadow-lg backdrop-blur-sm`}>
+//                 {product.category}
+//               </span>
+//             </div>
+//           </motion.div>
+
+//           {/* Number Watermark */}
+//           <div className="absolute bottom-6 right-6">
+//             <span className={`${playfair.className} text-7xl font-bold text-white/40 transition-all duration-500 group-hover:text-white/60`}>
+//               {String(index + 1).padStart(2, '0')}
+//             </span>
+//           </div>
+//         </div>
+
+//         {/* Content Section */}
+//         <div className="relative px-8 py-6">
+          
+//           {/* Title */}
+//           <div className="mb-5">
+//             <motion.div
+//               initial={{ width: 0 }}
+//               animate={isInView ? { width: '48px' } : { width: 0 }}
+//               transition={{ duration: 0.6, delay: index * 0.15 + 0.4 }}
+//               className="mb-3 h-1 rounded-full bg-linear-to-r from-[#886c46] to-[#886c46]/40"
+//             />
+//             <h3 className={`${playfair.className} text-3xl font-semibold leading-tight text-[#2a2520] transition-colors duration-300 group-hover:text-[#886c46]`}>
+//               {product.title}
+//             </h3>
+//           </div>
+
+//           {/* Description */}
+//           <p className={`${merri.className} mb-6 text-[15px] font-light leading-relaxed text-[#5a5248]`}>
+//             {product.description}
+//           </p>
+
+//           {/* Features
+//           <div className="mb-6 space-y-2.5">
+//             {product.features.map((feature: string, idx: number) => (
+//               <motion.div
+//                 key={idx}
+//                 initial={{ opacity: 0, x: -20 }}
+//                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+//                 transition={{ 
+//                   duration: 0.5, 
+//                   delay: index * 0.15 + 0.5 + idx * 0.1 
+//                 }}
+//                 className="group/feature flex items-start gap-3"
+//               >
+//                 <div className="mt-1 shrink-0">
+//                   <div className="flex h-5 w-5 items-center justify-center rounded-full bg-linear-to-br from-[#886c46] to-[#6f5838] shadow-sm transition-transform duration-300 group-hover/feature:scale-110">
+//                     <svg className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+//                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+//                     </svg>
+//                   </div>
+//                 </div>
+//                 <span className={`${merri.className} text-sm font-light text-[#5a5248] transition-colors duration-300 group-hover/feature:text-[#886c46]`}>
+//                   {feature}
+//                 </span>
+//               </motion.div>
+//             ))}
+//           </div> */}
+
+//           {/* CTA */}
+//           <div className="flex items-center justify-between border-t border-[#886c46]/10 pt-5">
+            
+//             <div className="flex flex-col">
+//               <span className={`${merri.className} text-[10px] uppercase tracking-[0.2em] text-[#886c46]/60`}>
+//                 Project
+//               </span>
+//               <span className={`${merri.className} text-xs font-light text-[#5a5248]`}>
+//                 View Details
+//               </span>
+//             </div>
+
+//             <motion.a
+//               href={product.link}
+//               whileHover={{ scale: 1.05 }}
+//               whileTap={{ scale: 0.95 }}
+//               className="group/btn relative overflow-hidden rounded-full bg-linear-to-r from-[#886c46] to-[#6f5838] px-6 py-3 shadow-lg transition-shadow duration-300 hover:shadow-xl hover:shadow-[#886c46]/20"
+//             >
+//               <span className={`${merri.className} relative z-10 flex items-center gap-2 text-sm font-light tracking-wide text-white`}>
+//                 Explore
+//                 <motion.svg
+//                   animate={{ x: isHovered ? 4 : 0 }}
+//                   transition={{ duration: 0.3 }}
+//                   className="h-4 w-4"
+//                   fill="none"
+//                   viewBox="0 0 24 24"
+//                   stroke="currentColor"
+//                 >
+//                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+//                 </motion.svg>
+//               </span>
+
+//               <motion.div
+//                 initial={{ x: '-100%' }}
+//                 whileHover={{ x: 0 }}
+//                 transition={{ duration: 0.3 }}
+//                 className="absolute inset-0 bg-linear-to-r from-[#6f5838] to-[#886c46]"
+//               />
+//             </motion.a>
+//           </div>
+//         </div>
+
+//         {/* Bottom Accent */}
+//         <motion.div
+//   initial={{ scaleX: 0 }}
+//   animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+//   transition={{ duration: 0.8, delay: index * 0.15 + 0.6, ease: 'easeInOut' }}
+//   className="absolute bottom-0 left-0 h-1.5 w-full origin-left bg-linear-to-r from-[#886c46] via-[#a8926d] to-[#886c46]"
+// />
+
+
+//         {/* Hover Glow */}
+//         <motion.div
+//           animate={{ opacity: isHovered ? 1 : 0 }}
+//           transition={{ duration: 0.5 }}
+//           className="pointer-events-none absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-[#886c46]/20 blur-3xl"
+//         />
+//       </div>
+
+//       {/* Floating Shadow */}
+//       <motion.div
+//         animate={{
+//           y: isHovered ? 8 : 0,
+//           opacity: isHovered ? 0.4 : 0,
+//         }}
+//         transition={{ duration: 0.3 }}
+//         className="absolute inset-0 -z-10 rounded-3xl bg-[#886c46]/30 blur-xl"
+//       />
+//     </motion.article>
+//   )
+// }
+
+
+
+// export default OurProducts
+
+
 'use client'
 import React, { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
@@ -14,198 +384,181 @@ const playfair = Playfair_Display({
   weight: ['400', '500', '600', '700', '800', '900'],
 })
 
-const OurProducts = () => {
-  const products = [
+const products = [
   {
     id: 1,
     category: 'Residential',
     title: 'Wooden Series',
     description:
-      'Discover our signature luxury line, including the Arc Pod, A-Frame Cabin, Smart House, and other modular wooden structures. Designed to blend elegance, comfort, and sustainability.',
+      'Our signature line featuring Arc Pod, A-Frame Cabin, Smart House, and other modular wooden structures — designed for elegance, comfort, and long-term sustainability.',
     image: '/products/woodenseries/wooden/wooden-house-main.jpg',
     features: ['Quick Installation', 'Energy Efficient', 'Customizable Design'],
-    link: '/products/modular-homes'
+    link: '/products/modular-homes',
   },
   {
     id: 2,
     category: 'Residential',
     title: 'Prefab Solutions',
     description:
-      'Whether it’s a farmhouse, site office, or full-scale prefab house, our modular builds deliver speed, flexibility, and premium design.',
+      'Farmhouses, site offices, and full-scale prefab homes — our modular builds deliver speed, flexibility, and premium design without compromise.',
     image: '/products/prefab/house/prefab-homes.png',
     features: ['Durable Structure', 'Flexible Layouts', 'Low Maintenance'],
-    link: '/products/luxury-villas'
+    link: '/products/luxury-villas',
   },
   {
     id: 3,
     category: 'Commercial',
     title: 'Portable Solutions',
     description:
-      'Explore porta cabins, container houses, bunkhouses, mobile toilets, modular restrooms, and compact office setups, built for convenience and quick deployment.',
+      'Porta cabins, container houses, bunkhouses, mobile toilets, modular restrooms, and compact office setups built for convenience and rapid deployment.',
     image: '/products/portable/office/main.webp',
     features: ['Compact Design', 'Quick Deployment', 'Weather Resistant'],
-    link: '/products/office-spaces'
+    link: '/products/office-spaces',
   },
   {
     id: 4,
     category: 'Commercial',
     title: 'Specialized Structures',
     description:
-      'Smartly designed prefab schools, clinics, restaurants, factory cabins, electrical rooms, smoking zones, and more, all tailored to perform and built to scale.',
+      'Smartly designed prefab schools, clinics, restaurants, factory cabins, electrical rooms, and smoking zones — tailored to perform and built to scale.',
     image: '/products/special/restaurant/main.webp',
     features: ['Scalable Solutions', 'Custom Configurations', 'High Durability'],
-    link: '/products/retail-stores'
+    link: '/products/retail-stores',
   },
   {
     id: 5,
     category: 'Industrial',
     title: 'PUF Insulated Cabins',
     description:
-      'From solar control rooms to clean rooms and health centers, our PUF cabins ensure thermal protection, energy efficiency, and structural reliability.',
+      'Solar control rooms, clean rooms, and health centers — our PUF cabins ensure thermal protection, energy efficiency, and structural reliability in demanding environments.',
     image: '/products/puf/control/main.webp',
     features: ['Thermal Insulation', 'Energy Efficient', 'Robust Construction'],
-    link: '/products/warehouses'
+    link: '/products/warehouses',
   },
   {
     id: 6,
     category: 'Industrial',
     title: 'Security Solutions',
     description:
-      'Secure and compact modular units designed for monitoring, guarding, and controlled access environments. Built with reinforced materials for dependable protection.',
+      'Secure, compact modular units designed for monitoring, guarding, and controlled-access environments — reinforced for dependable, long-term protection.',
     image: '/products/security/security-cabin/security-cabin-ai.png',
     features: ['Strong Build', 'Weather Resistant', 'Easy Installation'],
-    link: '/products/factory-units'
-  }
+    link: '/products/factory-units',
+  },
 ]
 
-
+const OurProducts = () => {
   return (
-    <motion.section
-  className="relative min-h-screen py-24 overflow-hidden"
->
-      
-      <div className="absolute inset-0 opacity-40">
-        <div className="absolute top-40 -left-20 w-96 h-96 bg-[#886c46]/20 rounded-full blur-[100px]" />
-        <div className="absolute bottom-20 -right-20 w-96 h-96 bg-[#6f5838]/20 rounded-full blur-[100px]" />
-      </div>
-
-      <div className="absolute inset-0 opacity-[0.02]"
+    <motion.section className="relative min-h-screen py-24 overflow-hidden">
+      <div
+        className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `radial-gradient(circle, #886c46 1px, transparent 1px)`,
-          backgroundSize: '30px 30px'
+          backgroundSize: '28px 28px',
         }}
       />
 
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-40 -left-20 w-80 h-80 bg-[#886c46]/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-20 -right-20 w-80 h-80 bg-[#886c46]/10 rounded-full blur-[120px]" />
+      </div>
+
       <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-12">
-        
-        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
           transition={{ duration: 0.8 }}
           className="mb-20 text-center"
         >
           <motion.div
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: false }}
-                      transition={{ duration: 0.6 }}
-                      className="mb-6 inline-block"
-                    >
-                      <span className="inline-flex items-center gap-2 rounded-full border border-[#886c46]/60 bg-[#886c46] px-5 py-2 text-xs font-light tracking-widest text-[#f8f5f0] backdrop-blur-sm shadow-2xl">
-                        <span className="relative flex h-2 w-2">
-                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#f8f5f0] opacity-75"></span>
-                          <span className="relative inline-flex h-2 w-2 rounded-full bg-[#f8f5f0]"></span>
-                        </span>
-                        OUR PRODUCTS
-                      </span>
-            </motion.div>
-          <motion.h2
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: false }}
-                      transition={{ duration: 0.8, delay: 0.2 }}
-                      className={`${playfair.className} mb-6 text-4xl font-light leading-tight text-transparent bg-linear-to-r from-black via-[#886c46] to-black bg-clip-text md:text-5xl lg:text-6xl`}
-                    >
-                      Prefabricated Solutions
-                      <br />
-                      
-                        For Every Need
-                      
-            </motion.h2>
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.6 }}
+            className="mb-6 inline-block"
+          >
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#886c46]/60 bg-[#886c46] px-5 py-2 text-[10px] font-light tracking-widest text-[#f8f5f0]">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#f8f5f0] opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#f8f5f0]" />
+              </span>
+              OUR PRODUCTS
+            </span>
+          </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className={`${merri.className} mx-auto max-w-2xl text-base font-light leading-relaxed text-white/70`}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className={`${playfair.className} mb-5 text-4xl md:text-5xl lg:text-6xl font-light leading-tight text-[#000000]`}
           >
-            From residential homes to industrial facilities, our comprehensive range of modular buildings 
-            combines innovative design with practical functionality.
-          </motion.p>
+            Prefabricated Solutions
+            <br />
+            <span className="bg-linear-to-r from-black via-[#886c46] to-black text-transparent bg-clip-text">For Every Need</span>
+          </motion.h2>
+
+          
 
           <motion.div
             initial={{ width: 0 }}
-            whileInView={{ width: '100px' }}
+            whileInView={{ width: '80px' }}
             viewport={{ once: false }}
             transition={{ duration: 1, delay: 0.6 }}
-            className="mx-auto mt-8 h-px bg-linear-to-r from-transparent via-[#886c46] to-transparent"
+            className="mx-auto mt-8 h-px bg-[#886c46]"
           />
         </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {products.map((product, index) => (
             <ProductCard key={product.id} product={product} index={index} />
           ))}
         </div>
 
-        <div className="w-full flex flex-col justify-center items-center mt-12 gap-4 text-center">
-  
-  <p className="max-w-2xl text-sm md:text-base text-white/70 leading-relaxed">
-    Explore our complete portfolio of prefab construction systems, modular buildings, and turnkey infrastructure solutions built for modern residential, commercial, and industrial projects.
-  </p>
-
-  <button className="bg-white hover:bg-white transition-all duration-300 px-8 py-3 rounded-full text-black border-white border tracking-wide shadow-lg hover:shadow-xl">
-    View All Products
-  </button>
-
-</div>
-
+        <div className="mt-14 flex flex-col items-center gap-5 text-center">
+          <p className={`${merri.className} max-w-xl text-sm font-light leading-relaxed text-white/55`}>
+            Explore our complete portfolio of prefab construction systems, modular buildings, and
+            turnkey infrastructure solutions built for modern residential, commercial, and industrial
+            projects.
+          </p>
+          <button
+            className={`${merri.className} rounded-sm border border-[#886c46] px-9 py-3 text-xs font-light tracking-[0.15em] uppercase text-black transition-all duration-300 hover:bg-[#886c46] hover:border-[#886c46]`}
+          >
+            View All Products
+          </button>
+        </div>
       </div>
     </motion.section>
   )
 }
 
-const ProductCard = ({ product, index }: { product: any; index: number }) => {
+const ProductCard = ({ product, index }: { product: (typeof products)[0]; index: number }) => {
   const cardRef = useRef(null)
   const [isHovered, setIsHovered] = useState(false)
-  const isInView = useInView(cardRef, { once: true, margin: '-100px' })
+  const isInView = useInView(cardRef, { once: true, margin: '-80px' })
 
   return (
     <motion.article
       ref={cardRef}
-      initial={{ opacity: 0, y: 60, rotateX: 15 }}
-      animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : { opacity: 0, y: 60, rotateX: 15 }}
-      transition={{ 
-        duration: 0.8, 
-        delay: index * 0.15,
-        ease: [0.25, 0.46, 0.45, 0.94]
+      initial={{ opacity: 0, y: 48 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 48 }}
+      transition={{
+        duration: 0.7,
+        delay: index * 0.12,
+        ease: [0.25, 0.46, 0.45, 0.94],
       }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className="group relative perspective-1000 h-full "
+      className="group relative flex flex-col h-full"
     >
-      <div className="relative h-full overflow-hidden rounded-3xl bg-linear-to-br from-white via-[#faf8f5] to-white  transition-all duration-700 hover:shadow-[0_20px_60px_rgba(136,108,70,0.15)]">
-        
-        {/* Decorative Accent */}
-        <div className="absolute right-0 top-0 h-32 w-32 bg-linear-to-br from-[#886c46]/10 to-transparent blur-2xl" />
-        
-        {/* Image Section */}
-        <div className="relative h-64 overflow-hidden">
+      <div
+        className="relative flex flex-col h-full overflow-hidden rounded-sm bg-white border border-[#e8e2da] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(136,108,70,0.12),0_4px_16px_rgba(0,0,0,0.06)] hover:border-[#886c46]/30"
+      >
+        {/* Image */}
+        <div className="relative h-56 overflow-hidden bg-[#1a1612] shrink-0">
           <motion.div
-            animate={{ scale: isHovered ? 1.1 : 1 }}
+            animate={{ scale: isHovered ? 1.06 : 1 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="h-full w-full"
           >
@@ -217,152 +570,96 @@ const ProductCard = ({ product, index }: { product: any; index: number }) => {
             />
           </motion.div>
 
-          <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
-          <div className="absolute inset-0 bg-linear-to-br from-[#886c46]/20 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+          {/* Scrim — bottom fade only, no color tinting */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
 
-          {/* Category Badge */}
-          <motion.div
-            initial={{ y: -10, opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : { y: -10, opacity: 0 }}
-            transition={{ delay: index * 0.15 + 0.3 }}
-            className="absolute left-6 top-6"
+          {/* Category badge */}
+          <span
+            className={`${merri.className} absolute left-4 top-4 rounded-sm border border-[#886c46]/20 bg-white/95 px-3 py-1 text-[9px] font-light uppercase tracking-[0.18em] text-[#886c46]`}
           >
-            <div className="relative">
-              <div className="absolute inset-0 bg-white/12 blur-md" />
-              <span className={`${merri.className} relative block rounded-2xl border border-white/40 bg-white/90 px-4 py-2 text-[10px] font-light uppercase tracking-[0.2em] text-[#886c46] shadow-lg backdrop-blur-sm`}>
-                {product.category}
-              </span>
-            </div>
-          </motion.div>
+            {product.category}
+          </span>
 
-          {/* Number Watermark */}
-          <div className="absolute bottom-6 right-6">
-            <span className={`${playfair.className} text-7xl font-bold text-white/40 transition-all duration-500 group-hover:text-white/60`}>
-              {String(index + 1).padStart(2, '0')}
-            </span>
-          </div>
+          {/* Index watermark */}
+          <span
+            className={`${playfair.className} absolute bottom-3 right-4 text-5xl font-bold text-white/30 leading-none select-none transition-colors duration-300 group-hover:text-white/50`}
+          >
+            {String(index + 1).padStart(2, '0')}
+          </span>
         </div>
 
-        {/* Content Section */}
-        <div className="relative px-8 py-6">
-          
+        {/* Body */}
+        <div className="flex flex-col flex-1 px-7 pt-6 pb-0">
+          {/* Accent bar */}
+          <motion.div
+            animate={{ width: isHovered ? '52px' : '36px' }}
+            transition={{ duration: 0.4 }}
+            className="mb-3 h-0.5 bg-[#886c46] rounded-full"
+          />
+
           {/* Title */}
-          <div className="mb-5">
-            <motion.div
-              initial={{ width: 0 }}
-              animate={isInView ? { width: '48px' } : { width: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.15 + 0.4 }}
-              className="mb-3 h-1 rounded-full bg-linear-to-r from-[#886c46] to-[#886c46]/40"
-            />
-            <h3 className={`${playfair.className} text-3xl font-semibold leading-tight text-[#2a2520] transition-colors duration-300 group-hover:text-[#886c46]`}>
-              {product.title}
-            </h3>
-          </div>
+          <h3
+            className={`${playfair.className} mb-3 text-[22px] font-semibold leading-snug text-[#1c1814] transition-colors duration-300 group-hover:text-[#6f5838]`}
+          >
+            {product.title}
+          </h3>
 
           {/* Description */}
-          <p className={`${merri.className} mb-6 text-[15px] font-light leading-relaxed text-[#5a5248]`}>
+          <p className={`${merri.className} mb-5 text-[13px] font-light leading-[1.85] text-[#4a4540]`}>
             {product.description}
           </p>
 
-          {/* Features
-          <div className="mb-6 space-y-2.5">
-            {product.features.map((feature: string, idx: number) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, x: -20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                transition={{ 
-                  duration: 0.5, 
-                  delay: index * 0.15 + 0.5 + idx * 0.1 
-                }}
-                className="group/feature flex items-start gap-3"
+          {/* Feature chips */}
+          <div className="flex flex-wrap gap-1.5 mb-6">
+            {product.features.map((feature) => (
+              <span
+                key={feature}
+                className={`${merri.className} inline-flex items-center gap-1.5 rounded-sm border border-[#886c46]/18 bg-[#886c46]/[0.06] px-2.5 py-1 text-[10px] font-light tracking-wide text-[#6f5838]`}
               >
-                <div className="mt-1 shrink-0">
-                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-linear-to-br from-[#886c46] to-[#6f5838] shadow-sm transition-transform duration-300 group-hover/feature:scale-110">
-                    <svg className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                </div>
-                <span className={`${merri.className} text-sm font-light text-[#5a5248] transition-colors duration-300 group-hover/feature:text-[#886c46]`}>
-                  {feature}
-                </span>
-              </motion.div>
+                <span className="h-1 w-1 rounded-full bg-[#886c46] shrink-0" />
+                {feature}
+              </span>
             ))}
-          </div> */}
-
-          {/* CTA */}
-          <div className="flex items-center justify-between border-t border-[#886c46]/10 pt-5">
-            
-            <div className="flex flex-col">
-              <span className={`${merri.className} text-[10px] uppercase tracking-[0.2em] text-[#886c46]/60`}>
-                Project
-              </span>
-              <span className={`${merri.className} text-xs font-light text-[#5a5248]`}>
-                View Details
-              </span>
-            </div>
-
-            <motion.a
-              href={product.link}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group/btn relative overflow-hidden rounded-full bg-linear-to-r from-[#886c46] to-[#6f5838] px-6 py-3 shadow-lg transition-shadow duration-300 hover:shadow-xl hover:shadow-[#886c46]/20"
-            >
-              <span className={`${merri.className} relative z-10 flex items-center gap-2 text-sm font-light tracking-wide text-white`}>
-                Explore
-                <motion.svg
-                  animate={{ x: isHovered ? 4 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </motion.svg>
-              </span>
-
-              <motion.div
-                initial={{ x: '-100%' }}
-                whileHover={{ x: 0 }}
-                transition={{ duration: 0.3 }}
-                className="absolute inset-0 bg-linear-to-r from-[#6f5838] to-[#886c46]"
-              />
-            </motion.a>
           </div>
         </div>
 
-        {/* Bottom Accent */}
-        <motion.div
-  initial={{ scaleX: 0 }}
-  animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-  transition={{ duration: 0.8, delay: index * 0.15 + 0.6, ease: 'easeInOut' }}
-  className="absolute bottom-0 left-0 h-1.5 w-full origin-left bg-linear-to-r from-[#886c46] via-[#a8926d] to-[#886c46]"
-/>
+        {/* Footer */}
+        <div className="mt-auto flex items-center justify-between border-t border-[#e8e2da] px-7 py-4">
+          <div className="flex flex-col gap-0.5">
+            <span className={`${merri.className} text-[9px] uppercase tracking-[0.2em] text-[#a8926d]`}>
+              Project
+            </span>
+            <span className={`${merri.className} text-[11px] font-light text-[#7a7268]`}>
+              View Details
+            </span>
+          </div>
 
+          <motion.a
+            href={product.link}
+            whileTap={{ scale: 0.97 }}
+            className={`${merri.className} inline-flex items-center gap-2 rounded-sm bg-[#1c1814] px-5 py-2.5 text-[11px] font-light tracking-wide text-white transition-all duration-300 group-hover:bg-[#886c46] group-hover:gap-3`}
+          >
+            Explore
+            <svg
+              className="h-3.5 w-3.5 shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </motion.a>
+        </div>
 
-        {/* Hover Glow */}
+        {/* Bottom accent line — revealed on hover */}
         <motion.div
-          animate={{ opacity: isHovered ? 1 : 0 }}
-          transition={{ duration: 0.5 }}
-          className="pointer-events-none absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-[#886c46]/20 blur-3xl"
+          animate={{ scaleX: isHovered ? 1 : 0 }}
+          transition={{ duration: 0.45, ease: 'easeInOut' }}
+          className="absolute bottom-0 left-0 h-[2px] w-full origin-left bg-[#886c46]"
         />
       </div>
-
-      {/* Floating Shadow */}
-      <motion.div
-        animate={{
-          y: isHovered ? 8 : 0,
-          opacity: isHovered ? 0.4 : 0,
-        }}
-        transition={{ duration: 0.3 }}
-        className="absolute inset-0 -z-10 rounded-3xl bg-[#886c46]/30 blur-xl"
-      />
     </motion.article>
   )
 }
-
-
 
 export default OurProducts

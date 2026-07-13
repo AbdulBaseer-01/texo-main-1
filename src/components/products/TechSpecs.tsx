@@ -14,7 +14,6 @@ import {
   DoorOpen,
   CreditCard,
   LayoutTemplate,
-  Images,
 } from 'lucide-react'
 import { ProductData } from '@/lib/productsData'
 
@@ -32,7 +31,6 @@ const TABS: { key: keyof TechSpecsData; label: string; Icon: React.FC<{ size?: n
   { key: 'doorsSanitaryElectrical',label: 'Doors, Sanitary & Electrical',  Icon: DoorOpen       },
   { key: 'transitPaymentWarranty', label: 'Transit, Payment & Warranty',   Icon: CreditCard     },
   { key: 'layout2D',               label: '2D Layout',                     Icon: LayoutTemplate },
-  { key: 'gallery',                label: 'Gallery',                       Icon: Images         },
 ]
 
 /* ─────────────────────────────────────────────
@@ -58,7 +56,6 @@ export type TechSpecsData = {
   doorsSanitaryElectrical: TechSpecSection
   transitPaymentWarranty:  TechSpecSection
   layout2D:                TechSpecSection
-  gallery:                 TechSpecSection
 }
 
 interface TechSpecsProps {
@@ -215,7 +212,7 @@ export default function TechSpecs({ product }: TechSpecsProps) {
             >
               {/* ── Image viewer ── */}
               <div className="relative flex-1 min-w-0">
-                <div className="relative aspect-4/3 xl:aspect-auto xl:h-[520px] w-full overflow-hidden rounded-2xl bg-black shadow-2xl">
+                <div className="relative aspect-4/3 xl:aspect-auto xl:h-130 w-full overflow-hidden rounded-2xl bg-black shadow-2xl">
 
                   {/* Slides */}
                   <AnimatePresence custom={imgDirection} initial={false}>
@@ -340,7 +337,7 @@ export default function TechSpecs({ product }: TechSpecsProps) {
                           ${i !== specs.length - 1 ? 'border-b border-white/16' : ''}`}
                       >
                         {/* Label */}
-                        <span className={`${merri.className} text-xs font-light text-white/85 leading-snug min-w-[90px] shrink-0 pt-0.5`}>
+                        <span className={`${merri.className} text-xs font-light text-white/85 leading-snug min-w-22.5 shrink-0 pt-0.5`}>
                           {row.label}
                         </span>
                         {/* Value */}

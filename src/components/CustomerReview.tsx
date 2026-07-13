@@ -90,8 +90,8 @@ const CustomerReview = () => {
   ];
   return (
     <div>
-        <section className="py-32 bg-linear-to-b from-white via-[#faf8f4] to-white">
-        <div className="max-w-7xl mx-auto px-6">
+        <section className="pt-16 pb-8 bg-linear-to-b from-white via-[#faf8f4] to-white">
+        <div className="px-6 w-screen">
           
           <motion.div
             initial={{ opacity: 0, y: 80 }}
@@ -183,9 +183,9 @@ const CustomerReview = () => {
 
           </div>
 
-        <div className="max-w-screen   mt-20 overflow-hidden">
+        <div className="z-9999 mt-20 overflow-hidden">
           <div className="relative">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
               {[0, 1, 2].map((offset, cardIndex) => {
                 const idx = (reviewIndex + offset) % reviews.length;
                 const review = reviews[idx];
@@ -236,13 +236,13 @@ const CustomerReview = () => {
 
             <button
               onClick={prevReview}
-              className="absolute -left-4 md:left-4 top-1/2 -translate-y-1/2 bg-[#886c46]/60 border border-black text-black p-3 rounded-full hover:bg-[#6b5236] transition z-99"
+              className="absolute -left-4 md:left-4 top-1/2 -translate-y-1/2 bg-[#886c46]/60 border border-black text-black p-3 rounded-full hover:bg-[#6b5236] transition z-999"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={nextReview}
-              className="absolute -right-4 md:right-4 top-1/2 -translate-y-1/2 bg-[#886c46]/60 border border-black text-black p-3 rounded-full hover:bg-[#6b5236] transition z-99"
+              className="absolute -right-4 md:right-4 top-1/2  -translate-y-1/2 bg-[#886c46]/60 border border-black text-black p-3 rounded-full hover:bg-[#6b5236] transition z-9999"
             >
               <ChevronRight className="w-5 h-5" />
             </button>

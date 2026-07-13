@@ -104,15 +104,10 @@ const WhyChooseUs = () => {
           <h2 className={`${playfair.className} mb-6 text-4xl font-light leading-tight text-black md:text-5xl lg:text-6xl`}>
             Building Excellence,
             <br />
-            <span className="font-bold bg-linear-to-r from-black via-[#886c46] to-black bg-clip-text text-transparent">
+            <span className=" bg-linear-to-r from-black via-[#886c46] to-black bg-clip-text text-transparent">
               One Module at a Time
             </span>
           </h2>
-
-          <p className={`${merri.className} mx-auto max-w-2xl text-base font-light leading-relaxed text-black/80`}>
-            We revolutionize construction through innovation, precision, and unwavering commitment to quality. 
-            Discover what sets us apart in the prefab industry.
-          </p>
 
           <motion.div
             initial={{ width: 0 }}

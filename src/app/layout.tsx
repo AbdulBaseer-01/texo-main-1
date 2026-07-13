@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-white `}
+        className={`bg-white overflow-x-hidden`}
       >
         <Nav />
         {children}

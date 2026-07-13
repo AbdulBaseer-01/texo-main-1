@@ -12,7 +12,7 @@ const OurClients = () => {
 
         <section className="py-24 overflow-hidden bg-white  space-y-16">
                 <div className=" h-fit">
-                <h2 className={`${playfair.className} text-3xl md:text-6xl font-semibold text-center bg-linear-to-r from-black via-[#886c46] to-black bg-clip-text text-transparent`}>
+                <h2 className={`${playfair.className} text-3xl  font-semibold text-center bg-linear-to-r from-black via-[#886c46] to-black bg-clip-text text-transparent`}>
                     Our Happy Clientele
                 </h2>
                 </div>
@@ -51,7 +51,7 @@ const OurClients = () => {
             "/clients/int-21.webp",
 
             ].map((logo, i) => (
-            <div key={i} className="relative w-44 h-22 shrink-0">
+            <div key={i} className="relative w-40 h-18 shrink-0">
                 <Image src={logo} alt="" fill className="object-contain" />
             </div>
             ))}

@@ -11,18 +11,22 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.105.3",
     "framer-motion": "^12.33.0",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.23",
     "lucide-react": "^0.563.0",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "supabase": "^2.98.2",
-    "supabase-js": "^0.0.1-security"
+    "supabase-js": "^0.0.1-security",
+    "three": "^0.184.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "^0.184.1",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",

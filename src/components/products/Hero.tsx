@@ -13,6 +13,7 @@ import {
   ArrowUpRight,
 } from 'lucide-react'
 import { ProductData } from '@/lib/productsData'
+import Link from 'next/link'
 
 const merri = Merriweather({ subsets: ['latin'], weight: ['300', '400', '700', '900'] })
 const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800', '900'] })
@@ -286,7 +287,7 @@ export default function Hero({ product }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className={`${merri.className} mb-7 text-base font-light italic leading-relaxed text-black/60`}
+            className={`${merri.className} mb-7 text-base italic leading-relaxed text-black/80`}
           >
             {product.description}
           </motion.p>
@@ -296,9 +297,9 @@ export default function Hero({ product }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.45 }}
-            className={`${merri.className} mb-9 text-sm font-light leading-[1.9] text-black/55`}
+            className={`${merri.className} mb-9 text-sm leading-[1.9] text-black/75`}
           >
-            {product.longDescription.split('\n\n')[0]}
+            {product.longDescription}
           </motion.p>
 
           {/* CTA — matching Products page button style */}
@@ -313,7 +314,7 @@ export default function Hero({ product }: HeroProps) {
               whileTap={{ scale: 0.95 }}
               className={`${merri.className} inline-flex items-center gap-2.5 rounded-full bg-linear-to-r from-[#886c46] to-[#6f5838] px-8 py-4 text-sm font-light tracking-wide text-white shadow-xl shadow-[#886c46]/20 transition-all duration-300 hover:shadow-2xl hover:shadow-[#886c46]/25`}
             >
-              Get a Quote
+              <Link href={'/contact-us'}>Get a Quote</Link>
               <ArrowUpRight size={16} />
             </motion.button>
             <motion.button
@@ -321,7 +322,7 @@ export default function Hero({ product }: HeroProps) {
               whileTap={{ scale: 0.95 }}
               className={`${merri.className} inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/5 px-8 py-4 text-sm font-light tracking-wide text-black/70 transition-all duration-300 hover:border-[#886c46] hover:bg-black/10 hover:text-black`}
             >
-              View Projects
+              <Link href={'/inspiration-gallery'}>View Projects</Link>
               <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </motion.button>
           </motion.div>

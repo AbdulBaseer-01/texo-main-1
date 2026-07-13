@@ -33,7 +33,7 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#faf9f7] px-4 py-10 text-slate-900">
+    <main className="overflow-hidden h-screen bg-[#faf9f7] px-4 pb-10 pt-12 mt-24 flex justify-center items-center text-slate-900">
       <div className="mx-auto max-w-2xl rounded-4xl border border-black/10 bg-white p-10 shadow-xl shadow-black/5">
         <div className="mb-8">
           <p className="text-sm uppercase tracking-[0.3em] text-[#886c46]">Admin login</p>

@@ -126,20 +126,12 @@ const HeaderSection = () => {
       >
         Our Most Loved Offices,
         <br />
-        <span className="font-bold bg-linear-to-r from-black via-[#886c46] to-black bg-clip-text text-transparent">
+        <span className=" bg-linear-to-r from-black via-[#886c46] to-black bg-clip-text text-transparent">
           Designed for Excellence
         </span>
       </motion.h2>
       
-      <motion.p
-        initial={{ opacity: 0, y: 30 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className={`${merri.className} mx-auto max-w-2xl text-base font-light leading-relaxed text-black/80`}
-      >
-        Handpicked designs trusted by hundreds of businesses. Each office combines 
-        premium craftsmanship with innovative prefab technology.
-      </motion.p>
+      
 
       <motion.div
         initial={{ width: 0 }}

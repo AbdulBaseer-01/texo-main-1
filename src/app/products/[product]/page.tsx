@@ -21,6 +21,7 @@ import Contact from '@/components/Contact'
 import { getProductsByCategory, getProductByName } from '@/lib/productsData'
 import Hero from '@/components/products/Hero'
 import Advantages from '@/components/products/Advantages'
+import Applications from '@/components/products/Applications'
 import Variants from '@/components/products/Variants'
 import TechSpecs from '@/components/products/TechSpecs'
 
@@ -220,6 +221,8 @@ const ProductPage = () => {
       
       <Advantages product={product} />
 
+      <Applications product={product} />
+
       <section className="relative py-24 px-6 md:px-12 bg-black/3 border-t border-black/5">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -252,7 +255,7 @@ const ProductPage = () => {
 
           {/* 4-image grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {product.gallery.slice(0, 4).map((image, index) => (
+            {product.gallery.slice(0, 5).map((image, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -324,7 +327,9 @@ const ProductPage = () => {
           </div>
         </div>
       </section>
-      <TechSpecs product={product} />
+          {product.techSpecs && (
+        <TechSpecs product={product} />
+      )}
       {/* ─── TRUST BAND ──────────────────────────────────────────────── */}
       <section ref={trustRef} className="relative py-24 px-6 md:px-12 bg-black/3 border-t border-black/5">
         <div className="max-w-7xl mx-auto">
@@ -469,7 +474,6 @@ const ProductPage = () => {
         </div>
       </section>
       
-      
       <Variants product={product}/>
 
       
@@ -520,9 +524,9 @@ const ProductPage = () => {
                     <div className="relative overflow-hidden rounded-2xl bg-black/5 border border-black/10 hover:border-[#886c46]/50 hover:shadow-lg hover:shadow-[#886c46]/10 transition-all duration-500">
                       <div className="relative h-56 overflow-hidden bg-linear-to-br from-[#886c46]/10 to-transparent">
                         <motion.div whileHover={{ scale: 1.08 }} transition={{ duration: 0.5 }} className="h-full w-full relative">
-                          <Image src={relatedProduct.gallery[0]} alt={relatedProduct.name} fill className="object-cover opacity-70" />
+                          <Image src={relatedProduct.gallery[0]} alt={relatedProduct.name} fill className="object-cover" />
                         </motion.div>
-                        <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent" />
+                        {/* <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent" /> */}
                         <div className="absolute top-4 left-4">
                           <span className={`${merri.className} text-[10px] uppercase tracking-[0.2em] px-3 py-1.5 bg-black/60 backdrop-blur-md text-[#886c46] rounded-full border border-[#886c46]/30 font-light`}>
                             {relatedProduct.category}

@@ -87,12 +87,12 @@ export default function Contact() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center overflow-hidden bg-[#0d0b08] px-6 md:px-12 py-28"
+      className="relative min-h-screen flex items-center md:mx-8 rounded-4xl mx-2 overflow-hidden z-99999 bg-[#0d0b08] px-4 md:px-12 md:py-28 py-6"
     >
       {/* ── Background image with overlay ── */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/office/texo-6.jpg"
+          src="/others/office-exterior.png"
           alt=""
           fill
           priority
@@ -103,23 +103,23 @@ export default function Contact() {
       </div>
 
       {/* ── Ambient blobs ── */}
-      <div className="absolute -top-40 -right-24 w-140 h-140 rounded-full bg-[#886c46]/10 blur-3xl pointer-events-none z-0" />
-      <div className="absolute -bottom-20 -left-16 w-[24rem] h-96 rounded-full bg-[#886c46]/8 blur-3xl pointer-events-none z-0" />
+      {/* <div className="absolute -top-40 -right-24 w-140 h-140 rounded-full bg-[#886c46]/10 blur-3xl pointer-events-none z-0" /> */}
+      {/* <div className="absolute -bottom-20 -left-16 w-[24rem] h-96 rounded-full bg-[#886c46]/8 blur-3xl pointer-events-none z-0" /> */}
 
       {/* ── Top rule ── */}
-      <motion.div
+      {/* <motion.div
         initial={{ scaleX: 0 }}
         animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
         transition={{ duration: 1.2, ease: 'easeInOut' }}
         className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[#886c46]/50 to-transparent z-10"
-      />
+      /> */}
 
-      <div className="relative z-10 max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+      <div className="relative z-10  mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 text-center md:text-left gap-20 items-start">
 
           {/* ── LEFT — Supporting text ── */}
           <div>
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6 }}
@@ -132,7 +132,7 @@ export default function Contact() {
                 </span>
                 Get In Touch
               </span>
-            </motion.div>
+            </motion.div> */}
 
             <motion.h2
               initial={{ opacity: 0, y: 28 }}
@@ -156,7 +156,7 @@ export default function Contact() {
               Whether you{`'`}re planning a new installation or looking for inspiration, our team is ready to guide you from concept to completion. Share your vision and we{`'`}ll take it from there.
             </motion.p>
 
-            <div className="space-y-6">
+            <div className="space-y-6 bg-white/12 backdrop-blur-2xl px-6 py-4 rounded-2xl border border-[#886c46]">
               {contactDetails.map((item, i) => {
                 const Icon = item.icon;
                 return (
@@ -166,7 +166,7 @@ export default function Contact() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.38 + i * 0.1 }}
-                    className="group flex items-center gap-5 no-underline"
+                    className="group flex items-center gap-5 no-underline "
                   >
                     <div className="shrink-0 w-11 h-11 rounded-xl border border-[#886c46]/30 bg-[#886c46]/10 flex items-center justify-center group-hover:bg-[#886c46]/20 group-hover:border-[#886c46]/60 transition-all duration-300">
                       <Icon className="w-4 h-4 text-[#a8926d]" />
@@ -191,12 +191,12 @@ export default function Contact() {
               })}
             </div>
 
-            <motion.div
+            {/* <motion.div
               initial={{ scaleX: 0, originX: 0 }}
               animate={isInView ? { scaleX: 1 } : {}}
               transition={{ duration: 1, delay: 0.7 }}
               className="mt-14 h-px bg-linear-to-r from-[#886c46]/40 via-[#886c46]/10 to-transparent"
-            />
+            /> */}
           </div>
 
           {/* ── RIGHT — Contact form ── */}
@@ -205,8 +205,8 @@ export default function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.35 }}
           >
-            <div className="border border-[#886c46] rounded-2xl bg-white/13 backdrop-blur-xl overflow-hidden mt-4">
-              <div className="px-8 pt-8 pb-6 border-b border-[#886c46]/15 ">
+            <div className="border border-[#886c46] rounded-2xl  bg-white/13 backdrop-blur-xl overflow-hidden ">
+              <div className="px-8 md:pt-8 pt-4 pb-6 border-b text-center md:text-left border-[#886c46]/15 ">
                 <p
                   className="text-[0.62rem] uppercase tracking-[0.28em] text-[#a8926d] font-light mb-1"
                   style={{ fontFamily: "'Merriweather', serif" }}
@@ -242,7 +242,7 @@ export default function Contact() {
                   </div>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="px-8 py-8 space-y-5">
+                <form onSubmit={handleSubmit} className="md:px-8 md:py-8 px-2 py-3 space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <Field
                       label="Full Name"
@@ -271,6 +271,7 @@ export default function Contact() {
                     value={form.email}
                     onChange={handleChange}
                     required
+                    
                   />
 
                   <div>
@@ -373,7 +374,7 @@ function Field({ label, name, type, placeholder, value, onChange, required }: Fi
         value={value}
         onChange={onChange}
         required={required}
-        className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white focus:outline-none focus:border-[#886c46]/60 focus:bg-white/8 transition-all duration-300 text-sm font-light"
+        className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/25 focus:outline-none focus:border-[#886c46]/60 focus:bg-white/8 transition-all duration-300 text-sm font-light"
         style={{ fontFamily: "'Merriweather', serif" }}
       />
     </div>

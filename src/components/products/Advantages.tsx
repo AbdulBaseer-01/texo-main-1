@@ -1,36 +1,43 @@
-'use client'
+"use client";
 
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
-import { Merriweather, Playfair_Display } from 'next/font/google'
-import * as LucideIcons from 'lucide-react'
-import { LucideIcon } from 'lucide-react'
-import { ProductData } from '@/lib/productsData'
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Merriweather, Playfair_Display } from "next/font/google";
+import * as LucideIcons from "lucide-react";
+import { LucideIcon } from "lucide-react";
+import { ProductData } from "@/lib/productsData";
 
-const merri = Merriweather({ subsets: ['latin'], weight: ['300', '400', '700', '900'] })
-const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800', '900'] })
+const merri = Merriweather({
+  subsets: ["latin"],
+  weight: ["300", "400", "700", "900"],
+});
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
 
 interface AdvantagesProps {
-  product: ProductData
+  product: ProductData;
 }
 
 export default function Advantages({ product }: AdvantagesProps) {
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, margin: '-80px' })
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
 
   return (
-    <section ref={sectionRef} className="relative py-24 px-6 md:px-12 bg-white overflow-hidden">
-
+    <section
+      ref={sectionRef}
+      className="relative py-24 px-6 md:px-12 bg-white overflow-hidden"
+    >
       {/* Top decorative line */}
       <motion.div
         initial={{ scaleX: 0 }}
         animate={isInView ? { scaleX: 1 } : {}}
-        transition={{ duration: 1.2, ease: 'easeInOut' }}
+        transition={{ duration: 1.2, ease: "easeInOut" }}
         className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[#886c46] to-transparent"
       />
 
       <div className="max-w-7xl mx-auto">
-
         {/* Header */}
         <div className="mb-16">
           <div className="flex items-start gap-6">
@@ -38,7 +45,7 @@ export default function Advantages({ product }: AdvantagesProps) {
             <motion.div
               initial={{ scale: 0, rotate: -180 }}
               animate={isInView ? { scale: 1, rotate: 0 } : {}}
-              transition={{ type: 'spring', duration: 0.8, delay: 0.1 }}
+              transition={{ type: "spring", duration: 0.8, delay: 0.1 }}
               className="shrink-0 w-16 h-16 rounded-2xl bg-linear-to-br from-[#886c46] to-[#6f5838] flex items-center justify-center shadow-xl"
             >
               <LucideIcons.Star className="w-8 h-8 text-white" />
@@ -48,7 +55,7 @@ export default function Advantages({ product }: AdvantagesProps) {
               {/* Amber rule */}
               <motion.div
                 initial={{ width: 0 }}
-                animate={isInView ? { width: '64px' } : {}}
+                animate={isInView ? { width: "64px" } : {}}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="mb-4 h-1 rounded-full bg-linear-to-r from-[#886c46] to-[#886c46]/40"
               />
@@ -59,7 +66,7 @@ export default function Advantages({ product }: AdvantagesProps) {
                 transition={{ duration: 0.7, delay: 0.25 }}
                 className={`${playfair.className} text-4xl md:text-5xl font-semibold text-black mb-4`}
               >
-                Why Choose This
+                Advantages of {product.name}
               </motion.h2>
 
               <motion.p
@@ -68,7 +75,8 @@ export default function Advantages({ product }: AdvantagesProps) {
                 transition={{ duration: 0.6, delay: 0.35 }}
                 className={`${merri.className} text-black/60 font-light text-lg max-w-2xl`}
               >
-                Every detail of the {product.name} is engineered for performance, comfort, and lasting value.
+                Every detail of the {product.name} is engineered for
+                performance, comfort, and lasting value.
               </motion.p>
             </div>
           </div>
@@ -86,31 +94,101 @@ export default function Advantages({ product }: AdvantagesProps) {
                 delay: 0.1 + i * 0.08,
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
-              className="group relative overflow-hidden rounded-2xl border border-black/10 hover:border-[#886c46]/50 bg-linear-to-br from-black/2 to-black/4 transition-all duration-500 p-7"
+              className="group relative overflow-hidden rounded-2xl border border-black/10 hover:border-[#886c46]/50 bg-linear-to-br from-black/2 to-black/4 transition-all duration-500 p-7 shadow-2xl"
             >
               {/* Icon */}
               <div className="mb-5 w-12 h-12 rounded-xl bg-linear-to-br from-[#886c46]/15 to-[#886c46]/5 border border-[#886c46]/20 flex items-center justify-center transition-all duration-300 group-hover:from-[#886c46]/25 group-hover:to-[#886c46]/10 group-hover:border-[#886c46]/40">
                 {(() => {
                   const iconMap: Record<string, LucideIcon> = {
-                    'Trees': LucideIcons.TreePine,
-                    'Zap': LucideIcons.Zap,
-                    'Wrench': LucideIcons.Wrench,
-                    'Thermometer': LucideIcons.Thermometer,
-                    'LayoutDashboard': LucideIcons.LayoutDashboard,
-                    'CloudRain': LucideIcons.CloudRain,
-                  }
-                  const IconComponent = iconMap[adv.icon] || LucideIcons.CheckCircle
-                  return <IconComponent className="w-5 h-5 text-[#886c46]" />
+                    Hammer: LucideIcons.Hammer,
+                    Wrench: LucideIcons.Wrench,
+                    Building: LucideIcons.Building,
+                    Landmark: LucideIcons.Landmark,
+                    House: LucideIcons.House,
+                    Home: LucideIcons.Home,
+                    Factory: LucideIcons.Factory,
+                    Warehouse: LucideIcons.Warehouse,
+                    HardHat: LucideIcons.HardHat,
+                    Ruler: LucideIcons.Ruler,
+                    DraftingCompass: LucideIcons.DraftingCompass,
+                    PencilRuler: LucideIcons.PencilRuler,
+                    Square: LucideIcons.Square,
+                    Triangle: LucideIcons.Triangle,
+                    LayoutGrid: LucideIcons.LayoutGrid,
+                    LayoutDashboard: LucideIcons.LayoutDashboard,
+
+                    Shield: LucideIcons.Shield,
+                    ShieldCheck: LucideIcons.ShieldCheck,
+                    Lock: LucideIcons.Lock,
+                    CheckCircle: LucideIcons.CheckCircle,
+                    BadgeCheck: LucideIcons.BadgeCheck,
+
+                    Zap: LucideIcons.Zap,
+                    Battery: LucideIcons.Battery,
+                    Plug: LucideIcons.Plug,
+                    Lightbulb: LucideIcons.Lightbulb,
+                    SolarPanel: LucideIcons.SolarPanel,
+
+                    Leaf: LucideIcons.Leaf,
+                    Trees: LucideIcons.TreePine,
+                    Recycle: LucideIcons.Recycle,
+                    Sprout: LucideIcons.Sprout,
+
+                    Thermometer: LucideIcons.Thermometer,
+                    CloudRain: LucideIcons.CloudRain,
+                    Sun: LucideIcons.Sun,
+                    Wind: LucideIcons.Wind,
+                    Snowflake: LucideIcons.Snowflake,
+                    Cloud: LucideIcons.Cloud,
+
+                    Clock: LucideIcons.Clock,
+                    Timer: LucideIcons.Timer,
+                    Rocket: LucideIcons.Rocket,
+                    Truck: LucideIcons.Truck,
+
+                    Mountain: LucideIcons.Mountain,
+                    TreePine: LucideIcons.TreePine,
+                    MapPinned: LucideIcons.MapPinned,
+                    Globe: LucideIcons.Globe,
+
+                    Palette: LucideIcons.Palette,
+                    Paintbrush: LucideIcons.Paintbrush,
+                    Gem: LucideIcons.Gem,
+                    Star: LucideIcons.Star,
+
+                    Layers: LucideIcons.Layers,
+                    Boxes: LucideIcons.Boxes,
+                    Package: LucideIcons.Package,
+                    Container: LucideIcons.Container,
+
+                    Expand: LucideIcons.Expand,
+                    Move: LucideIcons.Move,
+                    Maximize: LucideIcons.Maximize,
+                    Combine: LucideIcons.Combine,
+
+                    Droplets: LucideIcons.Droplets,
+                    Flame: LucideIcons.Flame,
+                    Fingerprint: LucideIcons.Fingerprint,
+                    Cog: LucideIcons.Cog,
+                    Settings: LucideIcons.Settings,
+                  };
+                  const IconComponent =
+                    iconMap[adv.icon] || LucideIcons.CheckCircle;
+                  return <IconComponent className="w-5 h-5 text-[#886c46]" />;
                 })()}
               </div>
 
               {/* Title */}
-              <h3 className={`${playfair.className} text-xl font-semibold text-black mb-3 group-hover:text-[#886c46] transition-colors duration-300`}>
+              <h3
+                className={`${playfair.className} text-xl font-semibold text-black mb-3 group-hover:text-[#886c46] transition-colors duration-300`}
+              >
                 {adv.title}
               </h3>
 
               {/* Description */}
-              <p className={`${merri.className} text-black/60 font-light text-sm leading-relaxed`}>
+              <p
+                className={`${merri.className} text-black/60 font-light text-sm leading-relaxed`}
+              >
                 {adv.description}
               </p>
 
@@ -127,12 +205,12 @@ export default function Advantages({ product }: AdvantagesProps) {
       </div>
 
       {/* Bottom decorative line */}
-      <motion.div
+      {/* <motion.div
         initial={{ scaleX: 0 }}
         animate={isInView ? { scaleX: 1 } : {}}
         transition={{ duration: 1.2, delay: 0.6, ease: 'easeInOut' }}
         className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[#886c46] to-transparent"
-      />
+      /> */}
     </section>
-  )
+  );
 }
